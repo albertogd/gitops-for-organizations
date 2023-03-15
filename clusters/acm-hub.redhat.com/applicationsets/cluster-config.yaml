@@ -13,6 +13,7 @@ spec:
               files:
                 - path: "clusters/**/cluster.json"
           - list:
+              elements:
                 - template: openshift-machine-config
                 - template: openshift-ingress
                 - template: openshift-marketplace
