@@ -5,5 +5,4 @@ Cluster:
   registry: quay-des.io
 
 CatalogSource:
-  include: false
   rh_catalog_version: v4.10
