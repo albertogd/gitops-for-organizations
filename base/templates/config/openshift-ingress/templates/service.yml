@@ -1,4 +1,4 @@
-{{- if .Values.Ingress.include }}
+{{- if .Values.Ingress.Service.include }}
 
 ---
 apiVersion: v1
