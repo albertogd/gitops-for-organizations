@@ -5,7 +5,7 @@
   "cluster": {
     "name": "dev.redhat.com",
     "alias": "dev",
-    "address": "https://kubernetes.default.svc"
+    "address": "https://dev.redhat.com:6443"
   }
 }
 

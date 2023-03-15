@@ -5,7 +5,7 @@
   "cluster": {
     "name": "pre.redhat.com",
     "alias": "pre",
-    "address": "https://kubernetes.default.svc"
+    "address": "https://pre.redhat.com:6443"
   }
 }
 
