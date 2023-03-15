@@ -1,5 +1,5 @@
 {
-  "environment": "des",
+  "environment": "dev",
   "cloud": "vsphere",
   "region": "eu",
   "cluster": {
