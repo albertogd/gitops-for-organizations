@@ -2,7 +2,7 @@
 apiVersion: machineconfiguration.openshift.io/v1
 kind: KubeletConfig
 metadata:
-  name: master-kubeconfig
+  name: master-kubeletconfig
 spec:
   kubeletConfig:
     evictionHard:
