@@ -1,0 +1,4 @@
+apiVersion: v1
+name: Cluster Config
+version: "1"
+description: Cluster Config

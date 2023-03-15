@@ -1,0 +1,27 @@
+{{- if .Values.Ingress.include }}
+
+---
+kind: IngressController
+apiVersion: operator.openshift.io/v1
+metadata:
+  name: {{ .Values.Cluster.name }}
+  namespace: openshift-ingress-operator
+spec:
+  domain: {{ .Values.Cluster.name }}.apps.{{ .Values.Cluster.domain }}
+  logging:
+    access:
+      destination:
+        syslog:
+          address: 10.0.0.1
+          port: 10514
+        type: Syslog
+      logEmptyRequests: Ignore
+  nodePlacement:
+    nodeSelector:
+      matchLabels:
+        node-role.kubernetes.io/master: ""
+    tolerations:
+      - effect: NoSchedule
+        operator: Exists
+
+{{ end }}

@@ -1,0 +1,11 @@
+{
+  "environment": "des",
+  "cloud": "vsphere",
+  "region": "eu",
+  "cluster": {
+    "name": "des.redhat.com",
+    "alias": "des",
+    "address": "https://kubernetes.default.svc"
+  }
+}
+

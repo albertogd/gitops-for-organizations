@@ -1,0 +1,29 @@
+# Cluster
+Cluster:
+  registry: quay-pre.io
+
+# Marketplace
+CatalogSource:
+  include: true
+  rh_catalog_version: v4.9
+
+# Openshift-ingress
+Ingress:
+  Service:
+    include: true
+  Controller:
+    include: true
+    default:
+      placement: node-role.kubernetes.io/master
+      replicas: 1
+      syslog: true
+    Syslog:
+      address: 10.0.0.2
+
+# Openshift Config
+Config:
+  include: true
+
+# MachineConfig
+MachineConfig:
+  include: true

@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: helm-cluster-config
+  namespace: openshift-gitops
+spec:
+  generators:
+  - git:
+      repoURL: 
+      revision: develop
+      files:
+        - path: "clusters/**/cluster.json"
+  template:
+    metadata:
+      name: "provision-{{cluster.alias}}-cluster"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/albertogd/gitops-for-organizations.git
+        targetRevision: develop
+        path: . 
+        plugin:
+          name: kustomized-helm
+          env:
+            - name: HELM_TEMPLATES_BASE
+              value: base/templates/provision/openshift-provisioning
+            - name: CLUSTER_CONFIG_BASE
+              value: clusters/{{cluster.name}}
+            - name: ENVIRONMENT_CONFIG_BASE
+              value: conf/"{{environment}}"
+            - name: VALUES_FILE
+              value: values.yaml
+      destination:
+        server: 'https://kubernetes.default.svc'
+      syncPolicy: {}

@@ -1,0 +1,9 @@
+Cluster:
+  name: des
+  datacenter: bb
+  domain: des.redhat.com
+  registry: quay-des.io
+
+CatalogSource:
+  include: false
+  rh_catalog_version: v4.10
