@@ -32,7 +32,7 @@ spec:
         targetRevision: develop
         path: . 
         plugin:
-          name: kustomized-helm
+          name: helm-with-paths
           env:
             - name: HELM_TEMPLATES_BASE
               value: base/templates/config/{{template}}

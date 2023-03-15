@@ -104,13 +104,13 @@ spec:
         cpu: 250m
         memory: 128Mi
   configManagementPlugins: |
-    - name: kustomized-helm
+    - name: helm-with-paths
       init:
         command: ["/bin/sh", "-c"]
         args: ["helm dependency build $ARGOCD_ENV_HELM_TEMPLATES_BASE"]
       generate:
         command: [sh, -c]
-        args: ["helm template --release-name release-name -f $ARGOCD_ENV_ENVIRONMENT_CONFIG_BASE/$ARGOCD_ENV_VALUES_FILE  -f $ARGOCD_ENV_CLUSTER_CONFIG_BASE/$ARGOCD_ENV_VALUES_FILE $ARGOCD_ENV_HELM_TEMPLATES_BASE > $ARGOCD_ENV_CLUSTER_CONFIG_BASE/all.yaml && kustomize build $ARGOCD_ENV_CLUSTER_CONFIG_BASE"]
+        args: ["helm template --release-name release-name -f $ARGOCD_ENV_ENVIRONMENT_CONFIG_BASE/$ARGOCD_ENV_VALUES_FILE  -f $ARGOCD_ENV_CLUSTER_CONFIG_BASE/$ARGOCD_ENV_VALUES_FILE $ARGOCD_ENV_HELM_TEMPLATES_BASE]
   controller:
     processors: {}
     resources:
