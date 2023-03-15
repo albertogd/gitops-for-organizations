@@ -39,7 +39,7 @@ spec:
             - name: CLUSTER_CONFIG_BASE
               value: clusters/{{environment}}/{{cluster.name}}
             - name: ENVIRONMENT_CONFIG_BASE
-              value: conf/"{{environment}}"
+              value: conf/{{environment}}
             - name: VALUES_FILE
               value: values.yaml
       destination:
