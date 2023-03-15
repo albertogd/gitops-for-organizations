@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: 
+      repoURL: https://github.com/albertogd/gitops-for-organizations.git
       revision: develop
       files:
         - path: "clusters/**/cluster.json"
