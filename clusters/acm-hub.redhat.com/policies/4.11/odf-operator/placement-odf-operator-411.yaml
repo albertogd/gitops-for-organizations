@@ -1,14 +1,15 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
- name: placement-policy-odf-operator-411
+  name: placement-policy-odf-operator-411
+  namespace: open-cluster-management
 spec:
- clusterConditions:
+  clusterConditions:
    - status: 'True'
      type: ManagedClusterConditionAvailable
  clusterSelector:
-   matchExpressions:
-     - key: environment
-       operator: In
-       values:
+    matchExpressions:
+      - key: environment
+        operator: In
+        values:
          - dev

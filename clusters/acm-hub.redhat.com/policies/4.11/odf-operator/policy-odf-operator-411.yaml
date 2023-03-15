@@ -14,6 +14,7 @@ metadata:
    policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
    policy.open-cluster-management.io/standards: NIST SP 800-53
  name: policy-odf-operator-411
+ namespace: open-cluster-management
 spec:
  disabled: false
  policy-templates:
