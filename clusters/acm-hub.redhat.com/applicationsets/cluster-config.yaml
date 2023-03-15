@@ -37,7 +37,7 @@ spec:
             - name: HELM_TEMPLATES_BASE
               value: base/templates/config/{{template}}
             - name: CLUSTER_CONFIG_BASE
-              value: clusters/{{cluster.name}}
+              value: clusters/{{environment}}/{{cluster.name}}
             - name: ENVIRONMENT_CONFIG_BASE
               value: conf/"{{environment}}"
             - name: VALUES_FILE

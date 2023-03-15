@@ -3,8 +3,8 @@
   "cloud": "vsphere",
   "region": "eu",
   "cluster": {
-    "name": "des.redhat.com",
-    "alias": "des",
+    "name": "dev.redhat.com",
+    "alias": "dev",
     "address": "https://kubernetes.default.svc"
   }
 }
