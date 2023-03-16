@@ -13,23 +13,21 @@ workers:
     diskGB: 40
 
 imageContentSources:
-    mirror:
-    mirror-ocp-release:
-    mirror-ocp-art-dev:
-    registry:
-    username:
-    password:
-    email: 
+    mirror: dev-registry/openshift4 
+    registry: dev-registry
+    username: dev-test
+    password: dev-test
+    email: test@redhat.com
 
 provider:
-    username: 
-    password: 
-    vcenter: 
-    vmClusterName: 
-    datacenter: 
-    datastore: 
-    baseDomain:
-    folder: 
+    username: dev-test
+    password: dev-test
+    vcenter: dev-test
+    vmClusterName: dev-test 
+    datacenter: dev-test
+    datastore: dev-test
+    baseDomain: dev-test
+    folder: dev-test
     sshPrivatekey:
     sshPublickey: 
     cacertificate:
