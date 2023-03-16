@@ -12,7 +12,7 @@ spec:
         - path: "clusters/**/conf.yaml"
   template:
     metadata:
-      name: "config-{{cluster.environment}}-{{cluster.name}}-{{template}}"
+      name: "config-{{cluster.environment}}-{{cluster.name}}-overlay"
     spec:
       project: default
       source:
