@@ -12,13 +12,13 @@ spec:
         - path: "clusters/**/cluster.json"
   template:
     metadata:
-      name: "config-overlay-{{cluster.alias}}"
+      name: "config-overlay-{{cluster.environment}}-{{cluster.name}}"
     spec:
       project: default
       source:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
         targetRevision: main
-        path: clusters/{{environment}}/{{cluster.name}}/overlay
+        path: clusters/{{cluster.environment}}/{{cluster.fqdn}}/overlay
       destination:
         server: 'https://kubernetes.default.svc'
       syncPolicy: {}
