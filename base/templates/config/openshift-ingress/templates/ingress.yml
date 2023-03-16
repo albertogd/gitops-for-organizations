@@ -1,27 +1,37 @@
 {{- if .Values.Ingress.Controller.include }}
 
+{{- range $domain := .Values.Ingress.Controller.domains }}
+
 ---
-kind: IngressController
 apiVersion: operator.openshift.io/v1
+kind: IngressController
 metadata:
-  name: {{ .Values.Cluster.name }}
+  name: {{ $domain.name }}
   namespace: openshift-ingress-operator
 spec:
-  domain: {{ .Values.Cluster.name }}.apps.{{ .Values.Cluster.domain }}
+  domain: {{ $domain.name }}.apps.{{ $.Values.Cluster.name }}.{{ $.Values.Cluster.domain }}
+  
+  endpointPublishingStrategy:
+    type: NodePortService
+  
   logging:
     access:
       destination:
         syslog:
-          address: 10.0.0.1
+          address: {{ $.Values.Ingress.Controller.Syslog.address }}
           port: 10514
         type: Syslog
-      logEmptyRequests: Ignore
+
   nodePlacement:
     nodeSelector:
       matchLabels:
-        node-role.kubernetes.io/master: ""
+        {{ $domain.placement | default $.Values.Ingress.Controller.default.placement }}: ""
     tolerations:
-      - effect: NoSchedule
-        operator: Exists
+    - effect: NoSchedule
+      operator: Exists
+
+  replicas: {{ $domain.replicas | default $.Values.Ingress.Controller.default.replicas }}
+
+{{- end }}
 
 {{ end }}

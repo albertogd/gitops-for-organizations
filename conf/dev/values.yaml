@@ -17,8 +17,11 @@ Ingress:
       placement: node-role.kubernetes.io/master
       replicas: 1
       syslog: true
+    domains:
+      - { name: intranet, http_port: 30400, https_port: 31400, replicas: 1 }
+      - { name: extranet, http_port: 30500, https_port: 31500, replicas: 1 }
     Syslog:
-      address: 10.100.247.96
+      address: 10.0.0.1
 
 # Openshift Config
 Config:

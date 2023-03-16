@@ -17,6 +17,9 @@ Ingress:
       placement: node-role.kubernetes.io/master
       replicas: 1
       syslog: true
+    domains:
+      - { name: intranet, http_port: 30800, https_port: 31800, replicas: 2 }
+      - { name: extranet, http_port: 30900, https_port: 31900, replicas: 2 }
     Syslog:
       address: 10.0.0.2
 

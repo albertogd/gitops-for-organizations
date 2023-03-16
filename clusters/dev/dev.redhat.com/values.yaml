@@ -6,3 +6,8 @@ Cluster:
 
 CatalogSource:
   rh_catalog_version: v4.10
+
+Ingress:
+  Controller:
+    Syslog:
+      address: 10.9.0.1
