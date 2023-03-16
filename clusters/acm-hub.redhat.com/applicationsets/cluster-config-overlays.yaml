@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/albertogd/gitops-for-organizations.git
       revision: main
       files:
-        - path: "clusters/**/cluster.json"
+        - path: "clusters/**/conf.yaml"
   template:
     metadata:
       name: "config-overlay-{{cluster.environment}}-{{cluster.name}}"
