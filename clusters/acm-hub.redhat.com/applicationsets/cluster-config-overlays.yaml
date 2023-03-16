@@ -13,6 +13,11 @@ spec:
   template:
     metadata:
       name: "config-{{cluster.environment}}-{{cluster.name}}-overlay"
+      labels:
+        environment: "{{cluster.environment}}"
+        cluster: "{{cluster.fqdn}}"
+        region: "{{cluster.region}}"
+        cloud: "{{cluster.cloud}}"
     spec:
       project: default
       source:

@@ -3,6 +3,9 @@ cluster:
   fqdn: salamanca.pre.redhat.com 
   baseDomain: pre.redhat.com
   environment: pre
+  datacenter: europe
+  cloud: vmware
+  region: eu
   type: vsphere
   imageName: 4.9.37
 

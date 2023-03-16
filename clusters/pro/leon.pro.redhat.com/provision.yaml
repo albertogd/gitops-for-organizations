@@ -3,6 +3,9 @@ cluster:
   fqdn: leon.pro.redhat.com 
   baseDomain: pro.redhat.com
   environment: pro
+  datacenter: europe
+  cloud: vmware
+  region: eu
   type: vsphere
   imageName: 4.9.37
 

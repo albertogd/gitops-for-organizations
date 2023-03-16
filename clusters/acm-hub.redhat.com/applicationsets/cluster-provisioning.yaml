@@ -5,14 +5,26 @@ metadata:
   namespace: openshift-gitops
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/albertogd/gitops-for-organizations.git
-      revision: develop
-      files:
-        - path: "clusters/**/provision.yaml"
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/albertogd/gitops-for-organizations.git
+              revision: develop
+              files:
+                - path: "clusters/**/provision.yaml"
+          - git:
+              repoURL: https://github.com/albertogd/gitops-for-organizations.git
+              revision: develop
+              files:
+                - path: "clusters/**/cluster.yaml"
   template:
     metadata:
       name: "provision-{{cluster.environment}}-{{cluster.name}}"
+      labels:
+        environment: "{{cluster.environment}}"
+        cluster: "{{cluster.fqdn}}"
+        region: "{{cluster.region}}"
+        cloud: "{{cluster.cloud}}"
     spec:
       project: default
       source:
