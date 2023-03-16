@@ -25,5 +25,5 @@ spec:
         targetRevision: main
         path: clusters/{{cluster.environment}}/{{cluster.fqdn}}/overlay
       destination:
-        server: 'https://kubernetes.default.svc'
+        server: "{{cluster.address}}"
       syncPolicy: {}
