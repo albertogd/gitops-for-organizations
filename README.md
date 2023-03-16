@@ -22,13 +22,13 @@ When the cluster is created, it’s automatically imported into ACM and added to
 
 ### Tools
 
-**Frontend**
+#### Frontend
 Web application with a form to fill in the cluster details. This can be AAP (Tower), Service Now, Jenkins or any custom web application. All the cluster parameters must be written in a yaml/json file and pushed to Git.
 
-**Red Hat Advanced Cluster Management for Kubernetes (RHACM)**
+#### Red Hat Advanced Cluster Management for Kubernetes (RHACM)
 ACM is used for provisioning Openshift clusters and also for applying policies to the clusters.
 
-**Openshift GitOps (ArgoCD)**
+#### Openshift GitOps (ArgoCD)
 Openshift GitOps (ArgoCD) is used as a Continuous Delivery tool for applying all the configuration to all out Openshift clusters.
 
 
