@@ -1,0 +1,13 @@
+Cluster:
+  name: des
+  datacenter: bb
+  domain: des.redhat.com
+  registry: quay-des.io
+
+CatalogSource:
+  rh_catalog_version: v4.10
+
+Ingress:
+  Controller:
+    Syslog:
+      address: 10.9.0.1

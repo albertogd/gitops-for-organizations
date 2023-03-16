@@ -1,0 +1,11 @@
+{
+  "environment": "dev",
+  "cloud": "vsphere",
+  "region": "eu",
+  "cluster": {
+    "name": "dev.redhat.com",
+    "alias": "dev",
+    "address": "https://kubernetes.default.svc"
+  }
+}
+

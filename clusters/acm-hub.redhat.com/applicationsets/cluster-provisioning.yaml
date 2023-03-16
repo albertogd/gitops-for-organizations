@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-provisioning
+  namespace: openshift-gitops
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/albertogd/gitops-for-organizations.git
+      revision: main
+      files:
+        - path: "clusters/**/cluster.json"
+  template:
+    metadata:
+      name: "provision-{{cluster.alias}}-cluster"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/albertogd/gitops-for-organizations.git
+        targetRevision: main
+        path: base/templates/provision/openshift-provisioning
+        helm:
+          valueFiles:
+            - /conf/{{environment}}/values.yaml
+            - /clusters/{{environment}}/{{cluster.name}}/values.yaml
+      destination:
+        server: 'https://kubernetes.default.svc'
+      syncPolicy: {}

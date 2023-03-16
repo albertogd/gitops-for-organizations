@@ -1,0 +1,13 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: binding-upgrade-cluster-411
+  namespace: open-cluster-management
+placementRef:
+  name: placement-upgrade-cluster-411
+  kind: PlacementRule
+  apiGroup: apps.open-cluster-management.io
+subjects:
+  - name: policy-upgrade-cluster-411
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io

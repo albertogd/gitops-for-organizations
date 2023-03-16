@@ -1,0 +1,32 @@
+# Cluster
+Cluster:
+  registry: quay-dev.io
+
+# Marketplace
+CatalogSource:
+  include: true
+  rh_catalog_version: v4.9
+
+# Openshift-ingress
+Ingress:
+  Service:
+    include: true
+  Controller:
+    include: true
+    default:
+      placement: node-role.kubernetes.io/master
+      replicas: 1
+      syslog: true
+    domains:
+      - { name: intranet, http_port: 30400, https_port: 31400, replicas: 1 }
+      - { name: extranet, http_port: 30500, https_port: 31500, replicas: 1 }
+    Syslog:
+      address: 10.0.0.1
+
+# Openshift Config
+Config:
+  include: true
+
+# MachineConfig
+MachineConfig:
+  include: true

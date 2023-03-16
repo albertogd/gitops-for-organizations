@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openshift-gitops-config
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: clusters/acm-hub.redhat.com
+    repoURL: >-
+      https://github.com/albertogd/gitops-for-organizations.git
+    targetRevision: main
+  syncPolicy: {}

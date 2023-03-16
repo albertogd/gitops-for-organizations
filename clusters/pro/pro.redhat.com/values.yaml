@@ -1,0 +1,4 @@
+Cluster:
+  name: pro
+  datacenter: bb
+  domain: pro.redhat.com

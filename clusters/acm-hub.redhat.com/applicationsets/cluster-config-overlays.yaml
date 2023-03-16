@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-config-overlays
+  namespace: openshift-gitops
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/albertogd/gitops-for-organizations.git
+      revision: main
+      files:
+        - path: "clusters/**/cluster.json"
+  template:
+    metadata:
+      name: "{{cluster.alias}}-cluster-config-overlay"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/albertogd/gitops-for-organizations.git
+        targetRevision: main
+        path: clusters/{{environment}}/{{cluster.name}}/overlay
+      destination:
+        server: 'https://kubernetes.default.svc'
+      syncPolicy: {}
