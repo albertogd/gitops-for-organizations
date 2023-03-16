@@ -169,3 +169,8 @@ spec:
    name: vmware
    namespace: openshift-gitops
 ```
+
+<br />
+<br />
+
+>Continue to the second part: [Configuring Openshift cluster with ApplicationSets using Helm+Kustomize and ACM Policies](Part-2.md)

@@ -342,3 +342,8 @@ Operators can be installed using a policy like [this one](https://github.com/ope
 ## Cluster upgrades
 
 As we are doing with operators, we can use [this policy](https://github.com/open-cluster-management-io/policy-collection/blob/main/community/CM-Configuration-Management/policy-upgrade-openshift-cluster.yaml) to set the version we want for any cluster.
+
+<br />
+<br />
+
+>Return to the first part: [Provisioning Openshift clusters using GitOps with ACM](Part-1.md)

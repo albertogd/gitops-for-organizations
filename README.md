@@ -22,8 +22,8 @@ When the cluster is created, it’s automatically imported into ACM and added to
 
 This solution is explained in more detail in these 2 parts:
 
-* [Provisioning Openshift clusters using GitOps with ACM](docs/Part-1.md)
-* [Configuring Openshift cluster with ApplicationSets using Helm+Kustomize and ACM Policies](docs/Part-2.md)
+* Part I: [Provisioning Openshift clusters using GitOps with ACM](docs/Part-1.md)
+* Part II: [Configuring Openshift cluster with ApplicationSets using Helm+Kustomize and ACM Policies](docs/Part-2.md)
 
 The repository used for the solution demonstration purposes is: [Gitops for Organizations](https://github.com/albertogd/gitops-for-organizations)
 
