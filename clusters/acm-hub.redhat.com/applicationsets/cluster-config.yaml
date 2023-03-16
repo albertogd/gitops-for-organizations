@@ -9,7 +9,7 @@ spec:
         generators:
           - git:
               repoURL: https://github.com/albertogd/gitops-for-organizations.git
-              revision: main
+              revision: develop
               files:
                 - path: "clusters/**/cluster.json"
           - list:
@@ -29,12 +29,12 @@ spec:
       project: default
       source:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
-        targetRevision: main
+        targetRevision: develop
         path: base/templates/config/{{template}}
         helm:
           valueFiles:
-            - /conf/{{environment}}/values.yaml
-            - /clusters/{{environment}}/{{cluster.name}}/values.yaml
+            - /conf/{{environment}}/conf.yaml
+            - /clusters/{{environment}}/{{cluster.name}}/conf.yaml
       destination:
         server: "{{cluster.address}}"
       syncPolicy: {}

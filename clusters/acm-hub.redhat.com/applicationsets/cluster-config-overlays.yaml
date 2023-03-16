@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/albertogd/gitops-for-organizations.git
-      revision: main
+      revision: develop
       files:
         - path: "clusters/**/cluster.json"
   template:
@@ -17,7 +17,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
-        targetRevision: main
+        targetRevision: develop
         path: clusters/{{environment}}/{{cluster.name}}/overlay
       destination:
         server: 'https://kubernetes.default.svc'

@@ -1,0 +1,36 @@
+masters:
+    count: 3 
+    cpus: 4
+    coresPerSocket: 2
+    memoryMB: 16384
+    diskGB: 40
+
+workers:
+    count: 1
+    cpus: 4
+    coresPerSocket: 2
+    memoryMB: 16384
+    diskGB: 40
+
+imageContentSources:
+    mirror:
+    mirror-ocp-release:
+    mirror-ocp-art-dev:
+    registry:
+    username:
+    password:
+    email: 
+
+provider:
+    username: 
+    password: 
+    vcenter: 
+    vmClusterName: 
+    datacenter: 
+    datastore: 
+    baseDomain:
+    folder: 
+    sshPrivatekey:
+    sshPublickey: 
+    cacertificate:
+    additionalTrustBundle:

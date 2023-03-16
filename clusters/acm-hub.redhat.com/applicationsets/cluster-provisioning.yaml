@@ -7,7 +7,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/albertogd/gitops-for-organizations.git
-      revision: main
+      revision: develop
       files:
         - path: "clusters/**/cluster.json"
   template:
@@ -17,12 +17,12 @@ spec:
       project: default
       source:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
-        targetRevision: main
+        targetRevision: develop
         path: base/templates/provision/openshift-provisioning
         helm:
           valueFiles:
-            - /conf/{{environment}}/values.yaml
-            - /clusters/{{environment}}/{{cluster.name}}/values.yaml
+            - /conf/{{environment}}/provision.yaml
+            - /clusters/{{environment}}/{{cluster.name}}/provision.yaml
       destination:
         server: 'https://kubernetes.default.svc'
       syncPolicy: {}

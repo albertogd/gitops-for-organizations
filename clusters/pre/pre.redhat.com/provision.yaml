@@ -1,0 +1,8 @@
+cluster: infra
+type: vsphere
+imageName: 4.9.37
+
+network:
+    networkName:
+    apiVIP:
+    ingressVIP:
