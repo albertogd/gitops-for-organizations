@@ -1,4 +1,12 @@
 cluster:
+  name: zamora
+  fqdn: zamora.dev.redhat.com
+  baseDomain: dev.redhat.com
+  environment: dev
+  datacenter: europe
+  cloud: vmware
+  region: eu
+  type: vsphere
   imageName: 4.10.24
 
 network:
