@@ -30,18 +30,11 @@ spec:
       source:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
         targetRevision: develop
-        path: . 
-        plugin:
-          name: helm-with-paths
-          env:
-            - name: HELM_TEMPLATES_BASE
-              value: base/templates/config/{{template}}
-            - name: CLUSTER_CONFIG_BASE
-              value: clusters/{{environment}}/{{cluster.name}}
-            - name: ENVIRONMENT_CONFIG_BASE
-              value: conf/{{environment}}
-            - name: VALUES_FILE
-              value: values.yaml
+        path: base/templates/config/{{template}}
+        helm:
+          valueFiles:
+            - /conf/{{environment}}/values.yaml
+            - /clusters/{{environment}}/{{cluster.name}}/values.yaml
       destination:
         server: "{{cluster.address}}"
       syncPolicy: {}
