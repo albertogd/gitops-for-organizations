@@ -25,4 +25,6 @@ spec:
             - /clusters/{{environment}}/{{cluster.name}}/provision.yaml
       destination:
         server: 'https://kubernetes.default.svc'
-      syncPolicy: {}
+        namespace: 
+      syncPolicy:
+        preserveResourcesOnDeletion: true
