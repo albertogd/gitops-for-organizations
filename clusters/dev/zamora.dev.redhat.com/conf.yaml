@@ -7,7 +7,7 @@ cluster:
   datacenter: europe
   cloud: vmware
   region: eu
-  registry: quay-des.io
+  registry: quay-dev.io
 
 catalogSource:
   rh_catalog_version: v4.10
