@@ -12,7 +12,7 @@ spec:
         - path: "clusters/**/provision.yaml"
   template:
     metadata:
-      name: "provision-{{cluster.fqdn}}"
+      name: "provision-{{environment}}-{{cluster.name}}"
     spec:
       project: default
       source:

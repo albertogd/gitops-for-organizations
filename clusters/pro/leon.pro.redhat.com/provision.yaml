@@ -1,7 +1,7 @@
 cluster:
-  name: pro
-  fqdn: pro.redhat.com 
-  baseDomain: redhat.com
+  name: leon
+  fqdn: leon.pro.redhat.com 
+  baseDomain: pro.redhat.com
   environment: pro
   type: vsphere
   imageName: 4.9.37

@@ -1,7 +1,7 @@
 cluster:
-  name: des
-  domain: redhat.com
-  fqdn: dev.redhat.com
+  name: zamora
+  domain: dev.redhat.com
+  fqdn: zamora.dev.redhat.com
   address: "https://kubernetes.default.svc"
   environment: dev
   datacenter: europe

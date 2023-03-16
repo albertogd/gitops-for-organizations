@@ -1,7 +1,7 @@
 cluster:
-  name: pro
-  domain: redhat.com
-  fqdn: pro.redhat.com
+  name: leon
+  domain: pro.redhat.com
+  fqdn: leon.pro.redhat.com
   address: "https://kubernetes.default.svc"
   environment: pro
   datacenter: europe
