@@ -1,4 +1,4 @@
-# GitOps for organizations - Part II: Configuring Openshift cluster with ApplicationSets using Helm+Kustomize and ACM Policies
+# Configuring Openshift cluster with ApplicationSets using Helm+Kustomize and ACM Policies
 
 There are multiple articles about GitOps describing how to use ArgoCD with Kustomize to configure multiple clusters or environments. They show a nice way to apply some kustomizations, but when you try you implement it in your organization, you’ll probably face the following “How can I” challenges:
 
