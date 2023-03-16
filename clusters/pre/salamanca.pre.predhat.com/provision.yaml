@@ -1,7 +1,7 @@
 cluster:
-  name: pre
-  fqdn: pre.redhat.com 
-  baseDomain: redhat.com
+  name: salamanca
+  fqdn: salamanca.pre.redhat.com 
+  baseDomain: pre.redhat.com
   environment: pre
   type: vsphere
   imageName: 4.9.37
