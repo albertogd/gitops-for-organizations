@@ -27,4 +27,5 @@ spec:
         server: 'https://kubernetes.default.svc'
         namespace: 
       syncPolicy:
-        preserveResourcesOnDeletion: true
+        syncOptions:
+          - preserveResourcesOnDeletion=true
