@@ -12,7 +12,7 @@ spec:
         - path: "clusters/**/cluster.json"
   template:
     metadata:
-      name: "{{cluster.alias}}-cluster-config-overlay"
+      name: "config-overlay-{{cluster.alias}}"
     spec:
       project: default
       source:
