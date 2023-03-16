@@ -12,7 +12,7 @@ spec:
         - path: "clusters/**/provision.yaml"
   template:
     metadata:
-      name: "provision-{{environment}}-{{cluster.name}}"
+      name: "provision-{{cluster.environment}}-{{cluster.name}}"
     spec:
       project: default
       source:
@@ -21,8 +21,8 @@ spec:
         path: base/provision/openshift-provisioning
         helm:
           valueFiles:
-            - /conf/{{environment}}/provision.yaml
-            - /clusters/{{environment}}/{{cluster.fqdn}}/provision.yaml
+            - /conf/{{cluster.environment}}/provision.yaml
+            - /clusters/{{cluster.environment}}/{{cluster.fqdn}}/provision.yaml
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: 
