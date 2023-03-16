@@ -5,6 +5,7 @@ cluster:
   address: "https://kubernetes.default.svc"
   environment: dev
   datacenter: europe
+  cloud: vmware
   region: eu
   registry: quay-des.io
 

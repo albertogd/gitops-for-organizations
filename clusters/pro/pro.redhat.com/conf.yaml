@@ -5,6 +5,7 @@ cluster:
   address: "https://kubernetes.default.svc"
   environment: pro
   datacenter: europe
+  cloud: vmware
   region: eu
   registry: quay-pre.io
 
