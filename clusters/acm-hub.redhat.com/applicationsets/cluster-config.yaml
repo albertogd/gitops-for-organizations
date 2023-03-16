@@ -19,7 +19,7 @@ spec:
                 - template: openshift-marketplace
   template:
     metadata:
-      name: "{{cluster.alias}}-cluster-config-{{template}}"
+      name: "config-{{cluster.alias}}-{{template}}"
       labels:
         environment: "{{environment}}" 
         cluster: "{{cluster.name}}"
@@ -33,8 +33,8 @@ spec:
         path: base/templates/config/{{template}}
         helm:
           valueFiles:
-            - /conf/{{environment}}/values.yaml
-            - /clusters/{{environment}}/{{cluster.name}}/values.yaml
+            - /conf/{{environment}}/conf.yaml
+            - /clusters/{{environment}}/{{cluster.name}}/conf.yaml
       destination:
         server: "{{cluster.address}}"
       syncPolicy: {}

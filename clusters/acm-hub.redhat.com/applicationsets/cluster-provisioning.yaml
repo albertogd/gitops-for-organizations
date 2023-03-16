@@ -21,8 +21,11 @@ spec:
         path: base/templates/provision/openshift-provisioning
         helm:
           valueFiles:
-            - /conf/{{environment}}/values.yaml
-            - /clusters/{{environment}}/{{cluster.name}}/values.yaml
+            - /conf/{{environment}}/provision.yaml
+            - /clusters/{{environment}}/{{cluster.name}}/provision.yaml
       destination:
         server: 'https://kubernetes.default.svc'
-      syncPolicy: {}
+        namespace: 
+      syncPolicy:
+        syncOptions:
+          - preserveResourcesOnDeletion=true

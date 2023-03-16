@@ -1,0 +1,34 @@
+masters:
+    count: 3 
+    cpus: 4
+    coresPerSocket: 2
+    memoryMB: 16384
+    diskGB: 40
+
+workers:
+    count: 1
+    cpus: 4
+    coresPerSocket: 2
+    memoryMB: 16384
+    diskGB: 40
+
+imageContentSources:
+    mirror: dev-registry/openshift4 
+    registry: dev-registry
+    username: dev-test
+    password: dev-test
+    email: test@redhat.com
+
+provider:
+    username: dev-test
+    password: dev-test
+    vcenter: dev-test
+    vmClusterName: dev-test 
+    datacenter: dev-test
+    datastore: dev-test
+    baseDomain: dev-test
+    folder: dev-test
+    sshPrivatekey:
+    sshPublickey: 
+    cacertificate:
+    additionalTrustBundle:

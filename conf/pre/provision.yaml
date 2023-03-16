@@ -1,0 +1,34 @@
+masters:
+    count: 3 
+    cpus: 4
+    coresPerSocket: 2
+    memoryMB: 16384
+    diskGB: 40
+
+workers:
+    count: 1
+    cpus: 4
+    coresPerSocket: 2
+    memoryMB: 16384
+    diskGB: 40
+
+imageContentSources:
+    mirror: pre-registry/openshift4 
+    registry: pre-registry
+    username: pre-test
+    password: pre-test
+    email: test@redhat.com
+
+provider:
+    username: pre-test
+    password: pre-test
+    vcenter: pre-test
+    vmClusterName: pre-test 
+    datacenter: pre-test
+    datastore: pre-test
+    baseDomain: pre-test
+    folder: pre-test
+    sshPrivatekey:
+    sshPublickey: 
+    cacertificate:
+    additionalTrustBundle:
