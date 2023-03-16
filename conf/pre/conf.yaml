@@ -1,17 +1,17 @@
 # Cluster
-Cluster:
+cluster:
   registry: quay-pre.io
 
 # Marketplace
-CatalogSource:
+catalogSource:
   include: true
   rh_catalog_version: v4.9
 
 # Openshift-ingress
-Ingress:
-  Service:
+ingress:
+  service:
     include: true
-  Controller:
+  controller:
     include: true
     default:
       placement: node-role.kubernetes.io/master
@@ -20,13 +20,13 @@ Ingress:
     domains:
       - { name: intranet, http_port: 30800, https_port: 31800, replicas: 2 }
       - { name: extranet, http_port: 30900, https_port: 31900, replicas: 2 }
-    Syslog:
+    syslog:
       address: 10.0.0.2
 
 # Openshift Config
-Config:
+config:
   include: true
 
 # MachineConfig
-MachineConfig:
+machineConfig:
   include: true

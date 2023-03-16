@@ -19,7 +19,7 @@ spec:
                 - template: openshift-marketplace
   template:
     metadata:
-      name: "config-{{cluster.name}}-{{template}}"
+      name: "config-{{cluster.environment}}-{{cluster.name}}-{{template}}"
       labels:
         environment: "{{cluster.environment}}" 
         cluster: "{{cluster.fqdn}}"
