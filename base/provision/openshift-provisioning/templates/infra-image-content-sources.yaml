@@ -42,6 +42,6 @@ data:
         source: cp.icr.io
 kind: ConfigMap
 metadata:
-  name: {{ .Values.cluster }}-image-content-sources
-  namespace: {{ .Values.cluster }}
+  name: {{ .Values.cluster.name }}-image-content-sources
+  namespace: {{ .Values.cluster.name }}
 

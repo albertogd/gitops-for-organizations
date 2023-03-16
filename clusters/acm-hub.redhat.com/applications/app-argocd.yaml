@@ -11,5 +11,5 @@ spec:
     path: clusters/acm-hub.redhat.com
     repoURL: >-
       https://github.com/albertogd/gitops-for-organizations.git
-    targetRevision: main
+    targetRevision: develop
   syncPolicy: {}

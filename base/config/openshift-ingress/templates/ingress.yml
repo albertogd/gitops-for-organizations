@@ -1,6 +1,6 @@
-{{- if .Values.Ingress.Controller.include }}
+{{- if .Values.ingress.controller.include }}
 
-{{- range $domain := .Values.Ingress.Controller.domains }}
+{{- range $domain := .Values.ingress.controller.domains }}
 
 ---
 apiVersion: operator.openshift.io/v1
@@ -9,7 +9,7 @@ metadata:
   name: {{ $domain.name }}
   namespace: openshift-ingress-operator
 spec:
-  domain: {{ $domain.name }}.apps.{{ $.Values.Cluster.name }}.{{ $.Values.Cluster.domain }}
+  domain: {{ $domain.name }}.apps.{{ $.Values.cluster.name }}.{{ $.Values.cluster.domain }}
   
   endpointPublishingStrategy:
     type: NodePortService
@@ -18,19 +18,19 @@ spec:
     access:
       destination:
         syslog:
-          address: {{ $.Values.Ingress.Controller.Syslog.address }}
+          address: {{ $.Values.ingress.controller.Syslog.address }}
           port: 10514
         type: Syslog
 
   nodePlacement:
     nodeSelector:
       matchLabels:
-        {{ $domain.placement | default $.Values.Ingress.Controller.default.placement }}: ""
+        {{ $domain.placement | default $.Values.ingress.controller.default.placement }}: ""
     tolerations:
     - effect: NoSchedule
       operator: Exists
 
-  replicas: {{ $domain.replicas | default $.Values.Ingress.Controller.default.replicas }}
+  replicas: {{ $domain.replicas | default $.Values.ingress.controller.default.replicas }}
 
 {{- end }}
 

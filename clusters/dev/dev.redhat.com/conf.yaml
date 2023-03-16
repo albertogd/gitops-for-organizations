@@ -1,13 +1,17 @@
-Cluster:
+cluster:
   name: des
-  datacenter: bb
-  domain: des.redhat.com
+  domain: redhat.com
+  fqdn: dev.redhat.com
+  address: "https://kubernetes.default.svc"
+  environment: dev
+  datacenter: europe
+  region: eu
   registry: quay-des.io
 
-CatalogSource:
+catalogSource:
   rh_catalog_version: v4.10
 
-Ingress:
-  Controller:
-    Syslog:
+ingress:
+  controller:
+    syslog:
       address: 10.9.0.1

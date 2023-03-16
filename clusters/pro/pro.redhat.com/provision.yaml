@@ -1,6 +1,10 @@
-cluster: infra
-type: vsphere
-imageName: 4.9.37
+cluster:
+  name: pro
+  fqdn: pro.redhat.com 
+  baseDomain: redhat.com
+  environment: pro
+  type: vsphere
+  imageName: 4.9.37
 
 network:
     networkName:

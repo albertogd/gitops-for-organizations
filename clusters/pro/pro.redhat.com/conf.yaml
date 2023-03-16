@@ -1,4 +1,12 @@
-Cluster:
+cluster:
   name: pro
-  datacenter: bb
-  domain: pro.redhat.com
+  domain: redhat.com
+  fqdn: pro.redhat.com
+  address: "https://kubernetes.default.svc"
+  environment: pro
+  datacenter: europe
+  region: eu
+  registry: quay-pre.io
+
+catalogSource:
+  rh_catalog_version: v4.9.40

@@ -1,6 +1,6 @@
-{{- if .Values.Ingress.Service.include }}
+{{- if .Values.ingress.service.include }}
 
-{{- range $domain := .Values.Ingress.Controller.domains }}
+{{- range $domain := .Values.ingress.controller.domains }}
 
 ---
 apiVersion: v1

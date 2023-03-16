@@ -1,4 +1,4 @@
-{{- if .Values.CatalogSource.include }}
+{{- if .Values.catalogSource.include }}
 
 ---
 apiVersion: operators.coreos.com/v1alpha1
@@ -8,7 +8,7 @@ metadata:
   namespace: openshift-marketplace
 spec:
   displayName: Local Certified Operator Catalog
-  image: {{ .Values.Cluster.registry }}/redhat/certified-operator:{{ .Values.CatalogSource.rh_catalog_version }}
+  image: {{ .Values.cluster.registry }}/redhat/certified-operator:{{ .Values.catalogSource.rh_catalog_version }}
   publisher: grpc
   sourceType: grpc
   updateStrategy:

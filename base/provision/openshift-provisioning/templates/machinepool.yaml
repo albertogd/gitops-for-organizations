@@ -3,11 +3,11 @@ kind: MachinePool
 metadata:
   annotations:
     helm.sh/hook-weight: "360"
-  name: {{ .Values.cluster }}-worker
-  namespace: {{ .Values.cluster }}
+  name: {{ .Values.cluster.name }}-worker
+  namespace: {{ .Values.cluster.name }}
 spec:
   clusterDeploymentRef:
-    name: '{{ .Values.cluster }}'
+    name: '{{ .Values.cluster.name }}'
   name: worker
   platform:
     vsphere:
