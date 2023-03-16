@@ -13,7 +13,7 @@ Instead of creating all the objects, we just need to create a 2 objects:
 - provision.yaml: contains the parameters needed to provision the cluster, like intall-config.yaml
 
 
-In our example repository, we can see these files for the cluster example [zamora.dev.redhat.com](clusters/dev/zamora.dev.redhat.com):
+In our example repository, we can see these files for the cluster example [zamora.dev.redhat.com](../clusters/dev/zamora.dev.redhat.com):
 
 ```
 clusters
@@ -36,7 +36,7 @@ We’re using an ApplicationSet to search for provision.yaml files, and it’ll 
 - Namespace
 - Secrets: pull-secret, install-config, ssh-private-key and creds
 
-The Helm [ACM provision chart](provision/openshift-provisioning/templates) has these templates: 
+The Helm [ACM provision chart](../base/provision/openshift-provisioning/templates) has these templates: 
 
 ```
 base

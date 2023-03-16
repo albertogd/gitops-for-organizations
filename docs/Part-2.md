@@ -312,7 +312,7 @@ We can add any kustomization we want for each cluster using kustomize. We’ll u
 
 ## Cluster Lifecycle with ACM policies
 
-For the cluster lifecycle, we’ll use ACM policies, which are stored in the [policies folder ](clusters/acm-hub.redhat.com/policies) in the git repository under clusters/acm-hub. 
+For the cluster lifecycle, we’ll use ACM policies, which are stored in the [policies folder ](../clusters/acm-hub.redhat.com/policies) in the git repository under clusters/acm-hub. 
 
 ```
 └── clusters
