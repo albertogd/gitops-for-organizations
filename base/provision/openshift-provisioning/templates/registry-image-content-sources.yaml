@@ -4,7 +4,7 @@ data:
     apiVersion: operator.openshift.io/v1alpha1
     kind: ImageContentSourcePolicy
     metadata:
-      name: operators-disconnected
+      name: local-icsp
     spec:
       repositoryDigestMirrors:
       - mirrors:
@@ -24,22 +24,10 @@ data:
         source: registry.hub.docker.com
       - mirrors:
         - {{ .Values.imageContentSources.registry }}
-        source: nvcr.io
-      - mirrors:
-        - {{ .Values.imageContentSources.registry }}
-        source: mcr.microsoft.com
-      - mirrors:
-        - {{ .Values.imageContentSources.registry }}
-        source: gcr.io
-      - mirrors:
-        - {{ .Values.imageContentSources.registry }}
         source: registry.marketplace.redhat.com
       - mirrors:
         - {{ .Values.imageContentSources.registry }}
         source: docker.io
-      - mirrors:
-        - {{ .Values.imageContentSources.registry }}
-        source: cp.icr.io
 kind: ConfigMap
 metadata:
   name: {{ .Values.cluster.name }}-image-content-sources
