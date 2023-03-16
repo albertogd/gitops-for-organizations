@@ -1,0 +1,14 @@
+apiVersion: internal.open-cluster-management.io/v1beta1
+kind: ManagedClusterInfo
+metadata:
+  # This object is created by RHACM and it is created with a app.kubernetes.io/instance label attached to it.
+  # RHACM adds this label to the ManagedClusterInfo object likely because a parent object was labeled using
+  # this label and the labels are just copied to the child objects. The parent object was labeled by Argo CD.
+  # The app.kubernetes.io/instance label is used by Argo CD to mark objects under its management. If the object
+  # has this label, Argo CD will assume that it is an object that it manages. Because this object didn't exist
+  # in the git repository, Argo CD displayed this object as out of sync. The purpose of this ManagedClusterInfo
+  # object is to avoid Argo CD showing this object as out of sync.
+  name: '{{ .Values.cluster.name }}'
+  annotations:
+    helm.sh/hook-weight: "375"
+  namespace: {{ .Values.cluster.name }}

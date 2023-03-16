@@ -1,0 +1,13 @@
+cluster:
+  name: salamanca
+  domain: pre.redhat.com
+  fqdn: salamanca.pre.redhat.com
+  address: "https://kubernetes.default.svc"
+  environment: pre
+  datacenter: europe
+  cloud: vmware
+  region: eu
+  registry: quay-pre.io
+
+catalogSource:
+  rh_catalog_version: v4.9.40

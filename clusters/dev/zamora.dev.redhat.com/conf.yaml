@@ -1,0 +1,18 @@
+cluster:
+  name: zamora
+  domain: dev.redhat.com
+  fqdn: zamora.dev.redhat.com
+  address: "https://kubernetes.default.svc"
+  environment: dev
+  datacenter: europe
+  cloud: vmware
+  region: eu
+  registry: quay-dev.io
+
+catalogSource:
+  rh_catalog_version: v4.10
+
+ingress:
+  controller:
+    syslog:
+      address: 10.9.0.1

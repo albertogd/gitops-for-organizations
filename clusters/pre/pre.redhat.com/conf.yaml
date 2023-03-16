@@ -1,4 +1,0 @@
-Cluster:
-  name: pre
-  datacenter: bb
-  domain: pre.redhat.com

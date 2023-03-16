@@ -11,7 +11,7 @@ spec:
               repoURL: https://github.com/albertogd/gitops-for-organizations.git
               revision: main
               files:
-                - path: "clusters/**/cluster.json"
+                - path: "clusters/**/conf.yaml"
           - list:
               elements:
                 - template: openshift-machine-config
@@ -19,22 +19,22 @@ spec:
                 - template: openshift-marketplace
   template:
     metadata:
-      name: "config-{{cluster.alias}}-{{template}}"
+      name: "config-{{cluster.environment}}-{{cluster.name}}-{{template}}"
       labels:
-        environment: "{{environment}}" 
-        cluster: "{{cluster.name}}"
-        region: "{{region}}"
-        cloud: "{{cloud}}"
+        environment: "{{cluster.environment}}" 
+        cluster: "{{cluster.fqdn}}"
+        region: "{{cluster.region}}"
+        cloud: "{{cluster.cloud}}"
     spec:
       project: default
       source:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
         targetRevision: main
-        path: base/templates/config/{{template}}
+        path: base/config/{{template}}
         helm:
           valueFiles:
-            - /conf/{{environment}}/conf.yaml
-            - /clusters/{{environment}}/{{cluster.name}}/conf.yaml
+            - /conf/{{cluster.environment}}/conf.yaml
+            - /clusters/{{cluster.environment}}/{{cluster.fqdn}}/conf.yaml
       destination:
         server: "{{cluster.address}}"
       syncPolicy: {}

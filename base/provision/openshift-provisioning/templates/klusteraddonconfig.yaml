@@ -1,0 +1,23 @@
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  annotations:
+    helm.sh/hook-weight: "360"
+  name: {{ .Values.cluster.name }}
+  namespace: {{ .Values.cluster.name }}
+spec:
+  clusterName: {{ .Values.cluster.name }}
+  clusterNamespace: {{ .Values.cluster.name }}
+  clusterLabels:
+    cloud: vSphere
+    vendor: OpenShift
+  applicationManager:
+    enabled: true
+  policyController:
+    enabled: true
+  searchCollector:
+    enabled: true
+  certPolicyController:
+    enabled: true
+  iamPolicyController:
+    enabled: true

@@ -1,0 +1,40 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  annotations:
+    helm.sh/hook-weight: "360"
+  labels:
+    cloud: 'vSphere'
+    vendor: OpenShift
+    hive.openshift.io/cluster-platform: vsphere
+    cluster.open-cluster-management.io/clusterset: 'all-openshift-clusters'
+  name: {{ .Values.cluster.name }}
+  namespace: {{ .Values.cluster.name }}
+spec:
+  baseDomain: {{ .Values.cluster.baseDomain }}
+  clusterName: {{ .Values.cluster.name }}
+  controlPlaneConfig:
+    servingCertificates: {}
+  installAttemptsLimit: 1
+  platform:
+    vsphere:
+      cluster: {{ .Values.provider.vmClusterName }} 
+      certificatesSecretRef:
+        name: {{ .Values.cluster.name }}-vsphere-certs
+      credentialsSecretRef:
+        name: {{ .Values.cluster.name }}-vsphere-creds
+      vCenter: {{ .Values.provider.vcenter }} 
+      datacenter: {{ .Values.provider.datacenter }} 
+      defaultDatastore: {{ .Values.provider.datastore }} 
+      network: {{ .Values.network.networkName }} 
+  provisioning:
+    installConfigSecretRef:
+      name: {{ .Values.cluster.name }}-install-config
+    manifestsConfigMapRef:
+      name: {{ .Values.cluster.name }}-image-content-sources
+    sshPrivateKeySecretRef:
+      name: {{ .Values.cluster.name }}-ssh-private-key
+    imageSetRef:
+      name: img{{ .Values.imageName }}-x86-64
+  pullSecretRef:
+    name: {{ .Values.cluster.name }}-pull-secret

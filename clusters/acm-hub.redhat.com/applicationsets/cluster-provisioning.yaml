@@ -5,24 +5,29 @@ metadata:
   namespace: openshift-gitops
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/albertogd/gitops-for-organizations.git
-      revision: main
-      files:
-        - path: "clusters/**/cluster.json"
+    - git:
+        repoURL: https://github.com/albertogd/gitops-for-organizations.git
+        revision: main
+        files:
+          - path: "clusters/**/provision.yaml"
   template:
     metadata:
-      name: "provision-{{cluster.alias}}-cluster"
+      name: "provision-{{cluster.environment}}-{{cluster.name}}"
+      labels:
+        environment: "{{cluster.environment}}"
+        cluster: "{{cluster.fqdn}}"
+        region: "{{cluster.region}}"
+        cloud: "{{cluster.cloud}}"
     spec:
       project: default
       source:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
         targetRevision: main
-        path: base/templates/provision/openshift-provisioning
+        path: base/provision/openshift-provisioning
         helm:
           valueFiles:
-            - /conf/{{environment}}/provision.yaml
-            - /clusters/{{environment}}/{{cluster.name}}/provision.yaml
+            - /conf/{{cluster.environment}}/provision.yaml
+            - /clusters/{{cluster.environment}}/{{cluster.fqdn}}/provision.yaml
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: 
