@@ -7,7 +7,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
-        revision: develop
+        revision: main
         files:
           - path: "clusters/**/provision.yaml"
   template:
@@ -22,7 +22,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
-        targetRevision: develop
+        targetRevision: main
         path: base/provision/openshift-provisioning
         helm:
           valueFiles:
