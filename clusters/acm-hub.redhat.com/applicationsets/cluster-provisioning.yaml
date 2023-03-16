@@ -18,7 +18,7 @@ spec:
       source:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
         targetRevision: main
-        path: base/templates/provision/openshift-provisioning
+        path: base/provision/openshift-provisioning
         helm:
           valueFiles:
             - /conf/{{environment}}/provision.yaml

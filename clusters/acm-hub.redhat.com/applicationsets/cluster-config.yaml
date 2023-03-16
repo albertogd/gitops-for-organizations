@@ -30,7 +30,7 @@ spec:
       source:
         repoURL: https://github.com/albertogd/gitops-for-organizations.git
         targetRevision: main
-        path: base/templates/config/{{template}}
+        path: base/config/{{template}}
         helm:
           valueFiles:
             - /conf/{{environment}}/conf.yaml
