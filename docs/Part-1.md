@@ -8,13 +8,13 @@ In this first part, ACM is used to provision Openshift clusters using Gitops. Th
 
 We need a frontend (web application) to create the objects needed by ACM to provision the clusters. This frontend can be AAP (Tower), Jenkins, or any custom web application with a form. Although ACM can be used as frontend to provision the clusters, there are some drawbacks: ACM stores the objects locally, not in git; ACM has a fixed form for cluster creation, which cannot be customized.
 
-This solution doesn't rely on any specific application/orchestrator. This solution just need that this application writes 2 configuration files: conf.yaml and provision.yaml.  
+This solution doesn't rely on any specific application/orchestrator. This solution just need that this application writes 2 configuration files: `conf.yaml` and `provision.yaml`.  
 
 ### Cluster Parameters
 
 Instead of creating all the objects needed by ACM in the frontend, we just need to create a 2 objects:
-- `conf.yaml`: contains all the configuration parameters of the cluster
-- `provision.yaml`: contains the parameters needed to provision the cluster, like intall-config.yaml
+- `conf.yaml`: contains all the configuration parameters of the cluster.
+- `provision.yaml`: contains the parameters needed to provision the cluster, like `intall-config.yaml`.
 
 
 In our example repository, we can see these files for the cluster example [zamora.dev.redhat.com](../clusters/dev/zamora.dev.redhat.com):
@@ -135,16 +135,15 @@ To add each new cluster to GitOps, we need to create this 3 objects in ACM:
 These objects will be also stored in git, as explained in the next part, [Configuring Openshift cluster with ApplicationSets using Helm+Kustomize and ACM Policies](Part-2.md):
 
 ```
-├── clusters
-│   ├── acm-hub
-│   │   ├── applications
-│   │   │
-│   │   ....
-│   │   ├── gitops-cluster
-│   |   |   ├── GitOpsCluster.yaml
-│   |   |   ├── ManagedClusterSetBinding.yaml
-│   |   |   ├── Placement.yaml
-│   |   |   └── kustomization.yaml
+└── clusters
+    └── acm-hub
+        ├── applications
+        ....
+        └── gitops-cluster
+            ├── GitOpsCluster.yaml
+            ├── ManagedClusterSetBinding.yaml
+            ├── Placement.yaml
+            └── kustomization.yaml
 ```
 
 A ManagedClusterSetBinding resource allows us to bind a ManagedClusterSet resource to a namespace. In our example, we want to bind the clusterSet vmware to the openshift-gitops namespace:
