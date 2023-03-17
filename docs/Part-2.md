@@ -160,18 +160,21 @@ In the template we define the Applications that will be created by the Applicati
 There are 3 main directories:
 
 * **base**: all the Helm templates are stored in this directory. It has two subfolders:
-  * config: we create a directory for each Chart (ArgoCD Application). In the example, we have the machine-config, oauth and 
+  * **config**: we create a directory for each Chart (ArgoCD Application). In the example, we have the machine-config, oauth and 
   * **provision**: we have one openshift-provisioning application. This application is the one defined in the first part of provisioning Openshift clusters.
 * clusters: the orchestrator, defined in the first part, will write the objects conf.yaml and provision.yaml in the subdirectory <clustername> . For the acm-hub, we’ll keep the configuration of the own ACM cluster:
-  * applications: app-argocd, the initial argo, to synchronize all the cluster configuration
-  * applicationsets: 3 applicationsets
-    * cluster-config-overlays
-    * cluster-config
-    * cluster-provisioning
-  * argocd: ArgoCD instance
-  * gitops-cluster: objects to register ManagedClusters in ArgoCD
-  * policies: policies used to configure the ManagedClusters
-* **conf**: here we’ll keep the default values (conf.yaml and provision.yaml) for each environment (dev, pre and pro). In each environment there are 2 files: conf.yaml and provision.yaml
+  * **applications**: app-argocd, the initial argo, to synchronize all the cluster configuration
+  * **applicationsets**: 3 applicationsets
+    * `cluster-config-overlays.yaml`: cluster-config ApplicationSet for kustomize applications 
+    * `cluster-config.yaml`: cluster-config ApplicationSet for Helm applications
+    * `cluster-provisioning.yaml`: cluster-provisioning ApplicationSet for ACM cluster provisioning
+  * **argocd**: ArgoCD instance
+  * **gitops-cluster**: objects to register ManagedClusters in ArgoCD
+    * `GitOpsCluster.yaml`: GitOpsCluster object to register the ManagedClusters to ArgoCD
+    * `ManagedClusterSetBinding.yaml`: Binding for the ClusterSet
+    * `Placement.yaml`: Placement to select ManagedClusters
+  * **policies**: policies used to configure the ManagedClusters
+* **conf**: here we’ll keep the default values (`conf.yaml` and `provision.yaml`) for each environment (dev, pre and pro).
 
 ```
 ├── base
@@ -260,22 +263,7 @@ There are 3 main directories:
         └── provision.yaml
 ```
 
-In the directory clusters/acm-hub, we define the own objects of the ACM Hub:
-
-* **applications**:
-  * app-argocd.yaml: ArgoCD initial application to synchronize all
-* **applicationsets**:
-  * cluster-config-overlays.yaml: cluster-config ApplicationSet for kustomize applications 
-  * cluster-config.yaml:  cluster-config ApplicationSet for Helm applications
-  * cluster-provisioning.yaml: cluster-provisioning ApplicationSet for ACM cluster provisioning
-* **argocd**
-  * app-argocd.yml: the instance of ArgoCD
-* **gitops-cluster**
-  * GitOpsCluster.yaml: GitOpsCluster object to register the ManagedClusters to ArgoCD
-  * ManagedClusterSetBinding.yaml: Binding for the ClusterSet
-  * Placement.yaml: Placement to select ManagedClusters
-
-## Initial application
+## Initial ArgoCD application
 
 There are multiple ways of bootstrapping all the configuration: using a policy, creating an Argo Application… If we have another cluster with ArgoCD, we can synchronize all the configurations from there using Openshift GitOps. However, we’re considering in this solution that we’re starting from 0, and we have only the ACM hub cluster. In this case, we need to create the initial application manually. After this, this initial application will be synchronized with ArgoCD
 
