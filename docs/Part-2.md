@@ -238,14 +238,14 @@ There are 3 main directories:
 │   │   └── zamora.dev.redhat.com
 │   |       ├──  provision.yaml
 │   |       ├──  conf.yaml
-│   |       ├──  kustomization.yaml
 │   |       └──  overlay
 │   |            ├── kustomization.yaml
 │   |            └── project.yaml
 │   └── pre
 │       └── salamanca.pre.redhat.com
 │           ├──  provision.yaml
-│           └──  conf.yaml
+│           ├──  conf.yaml
+│   |       └──  overlay
 │   
 └── conf
     ├── dev
