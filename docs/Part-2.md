@@ -245,7 +245,7 @@ There are 3 main directories:
 │       └── salamanca.pre.redhat.com
 │           ├──  provision.yaml
 │           ├──  conf.yaml
-│   |       └──  overlay
+│           └──  overlay
 │   
 └── conf
     ├── dev
