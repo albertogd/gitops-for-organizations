@@ -203,3 +203,5 @@ spec:
 <br />
 
 >Continue to the second part: [Configuring Openshift cluster with ApplicationSets using Helm+Kustomize and ACM Policies](Part-2.md)
+
+>Return to the Introduction: [GitOps for organizations: provisioning and configuring Openshift clusters automatically](../README.md)
