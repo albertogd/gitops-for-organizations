@@ -180,23 +180,23 @@ There are 3 main directories:
 ├── base
 │   ├── config
 │   |   ├── openshift-ingress
-│   |   |   ├── Chart.yml
+│   |   |   ├── Chart.yaml
 │   |   |   └── templates
-│   |   |       ├── ingress.yml
-│   |   |       └── service.yml
+│   |   |       ├── ingress.yaml
+│   |   |       └── service.yaml
 │   |   ├── openshift-machine-config
-│   |   |   ├── Chart.yml
+│   |   |   ├── Chart.yaml
 │   |   |   └── templates
 │   |   |       ├── 05-worker-kernelarg-selinuxpermissive.yaml
 │   |   |       └── master-kubeletconfig.yaml
 │   |   └── openshift-marketplace
-│   |       ├── Chart.yml
+│   |       ├── Chart.yaml
 │   |       └── templates
-│   |           ├── local-certified-operators.yml
-│   |           └── local-community-operators.yml
+│   |           ├── local-certified-operators.yaml
+│   |           └── local-community-operators.yaml
 │   └── provision
 │       └── openshift-provisioning
-│           ├── Chart.yml
+│           ├── Chart.yaml
 │           └── templates
 │               ├── clusterdeployment.yaml
 │               ├── klusteraddonconfig.yaml
@@ -208,7 +208,7 @@ There are 3 main directories:
 │   ├── acm-hub
 │   │   ├── applications
 │   |   |   ├── app-argocd.yaml
-│   |   |   └── kustomization.yml
+│   |   |   └── kustomization.yaml
 │   │   ├── applicationsets
 │   |   |   ├── cluster-config-overlays.yaml
 │   |   |   ├── cluster-config.yaml
@@ -236,29 +236,22 @@ There are 3 main directories:
 │   │               └── policy-upgrade-cluster-411.yaml
 │   ├── dev
 │   │   └── zamora.dev.redhat.com
-│   |       ├──  provision.json
-│   |       ├──  conf.yml
-│   |       ├──  kustomization.yml
+│   |       ├──  provision.yaml
+│   |       ├──  conf.yaml
+│   |       ├──  kustomization.yaml
 │   |       └──  overlay
-│   |            ├── kustomization.yml
-│   |            └── project.yml
+│   |            ├── kustomization.yaml
+│   |            └── project.yaml
 │   └── pre
 │       └── salamanca.pre.redhat.com
-│           ├──  provision.json
-│           ├──  conf.yml
-│           ├──  kustomization.yml
-│           └──  overlay
-│                ├── kustomization.yml
-│                └── project.yml
+│           ├──  provision.yaml
+│           └──  conf.yaml
 │   
 └── conf
     ├── dev
     │   ├── conf.yaml
     │   └── provision.yaml
-    ├── pre
-    │   ├── conf.yaml
-    │   └── provision.yaml
-    └── pro
+    └── pre
         ├── conf.yaml
         └── provision.yaml
 ```
