@@ -328,3 +328,5 @@ As we are doing with operators, we can use [this policy](https://github.com/open
 <br />
 
 >Return to the first part: [Provisioning Openshift clusters using GitOps with ACM](Part-1.md)
+
+>Return to the Introduction: [GitOps for organizations: provisioning and configuring Openshift clusters automatically](../README.md)
