@@ -8,6 +8,8 @@ In this first part, ACM is used to provision Openshift clusters using Gitops. Th
 
 We need a frontend (web application) to create the objects needed by ACM to provision the clusters. This frontend can be AAP (Tower), Jenkins, or any custom web application with a form. Although ACM can be used as frontend to provision the clusters, there are some drawbacks: ACM stores the objects locally, not in git; ACM has a fixed form for cluster creation, which cannot be customized.
 
+![Openshift Gitops Overview](../img/gitops-for-organization-frontend.png)
+
 This solution doesn't rely on any specific application/orchestrator. This solution just need that this application writes 2 configuration files: `conf.yaml` and `provision.yaml`.  
 
 ### Cluster Parameters
@@ -42,7 +44,11 @@ There are no specif format for conf.yaml and provision.yaml, but we follow these
 
 ## Cluster-provisioning ApplicationSet
 
-We’re using an ApplicationSet to search for provision.yaml files, and it’ll create an Argo Application for each file. This application will use a Helm chart to deploy all the ACM objects needed:
+We’re using an ApplicationSet to search for provision.yaml files, and it’ll create an Argo Application for each file. Each provision application will create all the ACM objects needed to deploy an Openshift cluster.
+
+![Openshift Gitops Overview](../img/gitops-for-organization-provision-applicationset.png)
+
+This application uses a Helm chart to deploy all the ACM objects needed:
 
 - ClusterDeployment
 - KlusterletAddonConfig
