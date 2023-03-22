@@ -9,7 +9,7 @@ There are multiple articles about GitOps describing how to use ArgoCD with Kusto
 
 Maybe you also read a cool post about creating a kustomize plugin. But organizations don’t want to rely on a custom plugin which is not supported. And the answer to all these questions is a really nice combination: ApplicationSets + Helm + Kustomize. 
 
-![Openshift Gitops Overview](../img/gitops-for-organization-applicationsets.png)
+![Openshift Gitops Overview](../img/gitops-for-organization-config-applicationsets.png)
 
 The big picture of this solution is:
 
@@ -311,6 +311,10 @@ For the cluster lifecycle, we’ll use ACM policies, which are stored in the [po
                     ├── placement-upgrade-cluster-411.yaml
                     └── policy-upgrade-cluster-411.yaml
 ```
+
+Policies are storeg in the git repository, synchronized with ArgoCD and applied by ACM.
+
+![Openshift Gitops Overview](../img/gitops-for-organization-policies.png)
 
 In [this repository](https://github.com/open-cluster-management-io/policy-collection/tree/main/community) there are many policy examples for Access Control, Audit and Accountability, Security Assessment and Authorization, Configuration Management… 
 
