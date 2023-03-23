@@ -6,7 +6,7 @@ In this article, I’ll not just describe how to create the whole workflow of Pr
 
 ## Overview
 
-“Gitops for organizations” is a solution for provisioning and configuring Openshift clusters using Red Hat products (ACM and Openshift Gitops), allowing the use of any orchestrator (AAP/Tower, Service Now, Jenkins…). In this solution, Git is the central integration point and the source of truth. ACM will be used for provisioning and applying policies, and Openshift Gitops (ArgoCD) as Continuous Delivery tool for applying all the configuration to each Openshift clusters.
+“Gitops for organizations” is a solution for provisioning and configuring Openshift clusters using Red Hat products (ACM and Openshift Gitops), allowing the use of any orchestrator (AAP/Tower, Service Now, Jenkins…). In this solution, Git is the central integration point and the source of truth. ACM will be used for provisioning and applying policies, and Openshift Gitops (ArgoCD) as Continuous Delivery tool for applying all the configuration to each Openshift cluster.
 
 ![Openshift Gitops Overview](img/gitops-for-organization-overview.png)
 
