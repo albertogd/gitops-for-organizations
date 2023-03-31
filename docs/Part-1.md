@@ -1,6 +1,10 @@
 # Provisioning Openshift clusters using GitOps with ACM
 
-In this first part, ACM is used to provision Openshift clusters using Gitops. The users fill in the clusters parameters in a form, which are written to a yaml/json object and pushed to git. ArgoCD synchronizes these objects into the ACM cluster. The cluster is provisioned with ACM, which automatically adds the clusters to Openshift GitOps for Day 2.
+In the [introduction](../README.md), we described a solution where ACM is used to provision Openshift clusters using Gitops. The users fill in the clusters parameters in a form, which are written to a yaml/json object and pushed to git. ArgoCD synchronizes these objects into the ACM cluster. The cluster is provisioned with ACM, which automatically adds the clusters to Openshift GitOps for Day 2. And then, the cluster is configured automatically with ArgoCD using Helm + Kustomize, and ACM policies.
+
+In this article, we'll explain in more detail the first part of the solution: *provisioning of Openshift clusters using GitOps with ACM*.
+
+If you're intested in the second part of the solution, *Configuring Openshift cluster with ApplicationSets using Helm+Kustomize and ACM Policies*, don't miss the [next article](Part-2.md).
 
 ![Openshift Gitops Overview](../img/gitops-for-organization-overview.png)
 
@@ -74,8 +78,8 @@ base
 
 The ApplicationSet creates an Argo Application for each `provision.yaml` under clusters folder using the path: `base/provision/openshift-provisioning` and the config files:
 
-* `/conf/{{cluster.environment}}/provision.yaml`
-* `/clusters/{{cluster.environment}}/{{cluster.fqdn}}/provision.yaml`
+* `/conf/<cluster environment>/provision.yaml`
+* `/clusters/<cluster environment>/<cluster fqdn>/provision.yaml`
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
