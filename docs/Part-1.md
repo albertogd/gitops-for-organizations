@@ -1,8 +1,10 @@
 # Provisioning Openshift clusters using GitOps with ACM
 
-In the [introduction](../README.md), I described a solution where ACM is used to provision Openshift clusters using Gitops. The users fill in the clusters parameters in a form, which are written to a yaml/json object and pushed to git. ArgoCD synchronizes these objects into the ACM cluster. The cluster is provisioned with ACM, which automatically adds the clusters to Openshift GitOps for Day 2.
+In the [introduction](../README.md), we described a solution where ACM is used to provision Openshift clusters using Gitops. The users fill in the clusters parameters in a form, which are written to a yaml/json object and pushed to git. ArgoCD synchronizes these objects into the ACM cluster. The cluster is provisioned with ACM, which automatically adds the clusters to Openshift GitOps for Day 2. And then, the cluster is configured automatically with ArgoCD using Helm + Kustomize, and ACM policies.
 
-In this article, I'll explain in more detail the first part of the solution: provisioning of Openshift clusters using GitOps with ACM.
+In this article, we'll explain in more detail the first part of the solution: *provisioning of Openshift clusters using GitOps with ACM*.
+
+If you're intested in the second part of the solution, *Configuring Openshift cluster with ApplicationSets using Helm+Kustomize and ACM Policies*, don't miss the [next article](Part-2.md).
 
 ![Openshift Gitops Overview](../img/gitops-for-organization-overview.png)
 
