@@ -1,0 +1,40 @@
+# Cluster
+cluster:
+#  registry: quay-dev.io
+
+# Console Banner
+consoleNotification:
+  include: true
+  text: "𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐌𝐄𝐍𝐓 𝐂𝐋𝐔𝐒𝐓𝐄𝐑"
+  background_color: "#FFFF00"
+  text_color: "#000000"
+
+
+# Marketplace
+#catalogSource:
+#  include: true
+#  rh_catalog_version: v4.9
+
+# Openshift-ingress
+#ingress:
+#  service:
+#    include: true
+#  controller:
+#    include: true
+#    default:
+#      placement: node-role.kubernetes.io/master
+#      replicas: 1
+#      syslog: true
+#    domains:
+#      - { name: intranet, http_port: 30400, https_port: 31400, replicas: 1 }
+#      - { name: extranet, http_port: 30500, https_port: 31500, replicas: 1 }
+#    syslog:
+#      address: 10.0.0.1
+
+# Openshift Config
+#config:
+#  include: true
+
+# MachineConfig
+#machineConfig:
+#  include: true

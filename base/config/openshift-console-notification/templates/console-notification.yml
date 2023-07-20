@@ -1,0 +1,14 @@
+{{- if .Values.consoleNotification.include }}
+
+---
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: custom-notification
+spec:
+  text: {{ .Values.consoleNotification.text }}
+  location: "BannerTop"
+  backgroundColor: {{ .Values.consoleNotification.background_color }}
+  color: {{ .Values.consoleNotification.text_color }}
+
+{{ end }}

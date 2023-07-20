@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-config
+  namespace: openshift-gitops
+spec:
+  generators:
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/bstrauss84/gitops-for-organizations.git
+              revision: develop
+              files:
+                - path: "clusters/**/conf.yaml"
+          - list:
+              elements:
+                - template: openshift-
+  template:
+    metadata:
+      name: "config-{{cluster.environment}}-{{cluster.name}}-{{template}}"
+      labels:
+        environment: "{{cluster.environment}}" 
+        cluster: "{{cluster.fqdn}}"
+        region: "{{cluster.region}}"
+        cloud: "{{cluster.cloud}}"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/albertogd/gitops-for-organizations.git
+        targetRevision: main
+        path: base/config/{{template}}
+        helm:
+          valueFiles:
+            - /conf/{{cluster.environment}}/conf.yaml
+            - /clusters/{{cluster.environment}}/{{cluster.fqdn}}/conf.yaml
+      destination:
+        server: "{{cluster.address}}"
+      syncPolicy: {}

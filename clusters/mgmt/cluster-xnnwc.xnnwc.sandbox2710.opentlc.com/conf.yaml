@@ -1,0 +1,17 @@
+cluster:
+  name: local-cluster
+  domain: sandbox2710.opentlc.com
+  fqdn: cluster-xnnwc.xnnwc.sandbox2710.opentlc.com
+#  address: "https://kubernetes.default.svc"
+  environment: mgmt
+  cloud: aws
+  region: us-east-2
+#  registry: quay-dev.io
+
+#catalogSource:
+#  rh_catalog_version: v4.10
+
+#ingress:
+#  controller:
+#    syslog:
+#      address: 10.9.0.1
