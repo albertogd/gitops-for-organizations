@@ -2,7 +2,7 @@ cluster:
   name: local-cluster
   domain: sandbox2710.opentlc.com
   fqdn: cluster-xnnwc.xnnwc.sandbox2710.opentlc.com
-#  address: "https://kubernetes.default.svc"
+  address: "https://api.cluster-xnnwc.xnnwc.sandbox2710.opentlc.com:6443"
   environment: mgmt
   cloud: aws
   region: us-east-2
