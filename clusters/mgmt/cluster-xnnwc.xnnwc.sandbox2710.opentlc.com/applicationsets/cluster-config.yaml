@@ -14,7 +14,7 @@ spec:
                 - path: "clusters/**/conf.yaml"
           - list:
               elements:
-                - template: openshift-console-notification
+                - template: ocp-console-banner
   template:
     metadata:
       name: "config-{{cluster.environment}}-{{cluster.name}}-{{template}}"
