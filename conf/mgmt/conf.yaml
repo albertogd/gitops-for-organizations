@@ -6,8 +6,8 @@ cluster:
 consoleNotification:
   include: true
   text: "𝐌𝐀𝐍𝐀𝐆𝐄𝐌𝐄𝐍𝐓 𝐂𝐋𝐔𝐒𝐓𝐄𝐑"
-  background_color: "#0000FF"
-  text_color: "#FFFFFF"
+  backgroundColor: "#0000FF"
+  color: "#FFFFFF"
 
 
 # Marketplace
