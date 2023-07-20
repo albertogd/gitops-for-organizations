@@ -14,7 +14,7 @@ spec:
                 - path: "clusters/**/conf.yaml"
           - list:
               elements:
-                - template: openshift-
+                - template: openshift-console-notification
   template:
     metadata:
       name: "config-{{cluster.environment}}-{{cluster.name}}-{{template}}"
@@ -26,8 +26,8 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/albertogd/gitops-for-organizations.git
-        targetRevision: main
+        repoURL: https://github.com/bstrauss84/gitops-for-organizations.git
+        targetRevision: develop
         path: base/config/{{template}}
         helm:
           valueFiles:
