@@ -8,8 +8,10 @@ metadata:
 spec:
   backgroundColor: {{- range $key, $value :=  .Values.consoleNotification.backgroundColor }}
     {{ $key }}: {{ $value | quote }}
+  {{- end }}
   color: {{- range $key, $value :=  .Values.consoleNotification.color }}
     {{ $key }}: {{ $value | quote }}
+  {{- end }}
   text: {{ .Values.consoleNotification.text }}
   location: "BannerTop"
     
