@@ -6,9 +6,9 @@ kind: ConsoleNotification
 metadata:
   name: custom-notification
 spec:
-  text: {{ .Values.consoleNotification.text }}
-  location: "BannerTop"
   backgroundColor: {{ .Values.consoleNotification.backgroundColor }}
   color: {{ .Values.consoleNotification.color }}
+  text: {{ .Values.consoleNotification.text }}
+  location: "BannerTop"
 
 {{ end }}
