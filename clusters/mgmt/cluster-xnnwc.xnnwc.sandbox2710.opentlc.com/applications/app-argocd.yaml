@@ -10,6 +10,6 @@ spec:
   source:
     path: clusters/acm-hub.redhat.com
     repoURL: >-
-      https://github.com/albertogd/gitops-for-organizations.git
-    targetRevision: main
+      https://github.com/bstrauss84/gitops-for-organizations.git
+    targetRevision: develop
   syncPolicy: {}
