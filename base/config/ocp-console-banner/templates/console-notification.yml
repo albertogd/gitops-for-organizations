@@ -6,12 +6,8 @@ kind: ConsoleNotification
 metadata:
   name: custom-notification
 spec:
-  backgroundColor: {{- range $key, $value :=  .Values.consoleNotification.backgroundColor }}
-    {{ $key }}: {{ $value | quote }}
-  {{- end }}
-  color: {{- range $key, $value :=  .Values.consoleNotification.color }}
-    {{ $key }}: {{ $value | quote }}
-  {{- end }}
+  backgroundColor: "{{ .Values.consoleNotification.backgroundColor }"
+  color: "{{ .Values.consoleNotification.color }}"
   text: {{ .Values.consoleNotification.text }}
   location: "BannerTop"
     
