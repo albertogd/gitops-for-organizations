@@ -2,7 +2,7 @@ cluster:
   name: development
   domain: sandbox2710.opentlc.com
   fqdn: development.sandbox2710.opentlc.com
-#  address: "https://kubernetes.default.svc"
+  address: "https://api.development.sandbox2710.opentlc.com:6443"
   environment: dev
   cloud: aws
   region: us-west-1
