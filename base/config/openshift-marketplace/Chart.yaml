@@ -1,4 +1,0 @@
-apiVersion: v1
-name: cluster
-version: "1"
-description: Test

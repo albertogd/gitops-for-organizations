@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    openshift.io/display-name: {{ .Values.cluster.name }}
-    cluster.open-cluster-management.io/managedCluster: {{ .Values.cluster.name }}
-    kubernetes.io/metadata.name: {{ .Values.cluster.name }}
-    helm.sh/hook-weight: "350"
-  name: {{ .Values.cluster.name }}
