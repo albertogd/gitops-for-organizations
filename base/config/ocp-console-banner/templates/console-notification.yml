@@ -8,7 +8,7 @@ metadata:
 spec:
   text: {{ .Values.consoleNotification.text }}
   location: "BannerTop"
-  backgroundColor: {{ .Values.consoleNotification.background_color }}
-  color: {{ .Values.consoleNotification.text_color }}
+  backgroundColor: {{ .Values.consoleNotification.backgroundColor }}
+  color: {{ .Values.consoleNotification.color }}
 
 {{ end }}
