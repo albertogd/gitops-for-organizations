@@ -32,7 +32,7 @@ spec:
         path: base/templates/{{template}}
         helm:
           valueFiles:
-            - /configs/{{cluster.environment}}/conf.yaml
+            - /configs/environments/{{cluster.environment}}/conf.yaml
             - /configs/clusters/{{cluster.environment}}/{{cluster.fqdn}}/conf.yaml
       destination:
         server: "{{cluster.address}}"
