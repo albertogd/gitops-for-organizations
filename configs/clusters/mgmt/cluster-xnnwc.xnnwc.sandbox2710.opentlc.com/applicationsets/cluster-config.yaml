@@ -15,6 +15,7 @@ spec:
           - list:
               elements:
                 - template: ocp-console-banner
+                - template: infra-nodes
   template:
     metadata:
       name: "config-{{cluster.environment}}-{{cluster.name}}-{{template}}"
