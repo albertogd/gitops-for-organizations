@@ -23,6 +23,12 @@ policies:
   policySets:
     - ocp-hub
     - ocp-clusters
+- name: policy-web-terminal-operator
+  manifests:
+    - path: web-terminal-operator/operator/overlays/fast
+  policySets:
+    - ocp-hub
+    - ocp-clusters
 policySets:
   - name: ocp-hub
     placement:
