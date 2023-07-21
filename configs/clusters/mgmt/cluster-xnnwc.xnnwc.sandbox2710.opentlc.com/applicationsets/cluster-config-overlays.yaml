@@ -23,7 +23,7 @@ spec:
       source:
         repoURL: https://github.com/bstrauss84/gitops-for-organizations.git
         targetRevision: develop
-        path: clusters/{{cluster.environment}}/{{cluster.fqdn}}/overlay
+        path: configs/clusters/{{cluster.environment}}/{{cluster.fqdn}}/overlay
       destination:
         server: "{{cluster.address}}"
       syncPolicy: {}
