@@ -8,6 +8,14 @@ cluster:
   region: us-east-2
 #  registry: quay-dev.io
 
+
+infraConfig:
+  include: true
+  nodes:
+  - ip-10-0-146-168.us-east-2.compute.internal
+  - ip-10-0-158-25.us-east-2.compute.internal
+  - ip-10-0-168-185.us-east-2.compute.internal
+ 
 #catalogSource:
 #  rh_catalog_version: v4.10
 

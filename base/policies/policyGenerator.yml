@@ -1,0 +1,32 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: policy-configuration-management
+policyDefaults:
+  categories:
+    - CM Configuration Management
+  controls: 
+    - CM-2 Baseline Configuration
+  namespace: policies
+  remediationAction: enforce
+  severity: medium
+  standards:
+    - NIST SP 800-53
+  policySets:
+    - openshift-hub
+placementBindingDefaults:
+  name: "binding-openshift-clusters"
+policies:
+- name: policy-infra-mcp
+  manifests:
+    - path: node-configs
+  policySets:
+    - openshift-plus-hub
+    - openshift-plus-clusters
+policySets:
+  - name: openshift-hub
+    placement:
+      placementPath: input/hub-placement.yaml
+  - name: openshift-clusters
+    placement:
+      placementPath: input/clusters-placement.yaml

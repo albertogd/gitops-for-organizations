@@ -1,0 +1,13 @@
+{{- if .Values.infraConfig.include }}
+
+{{- range $node := .Values.infraConfig.nodes }}
+---
+apiVersion: v1
+kind: Node
+metadata:
+  labels:
+    node-role.kubernetes.io/infra: ""
+  name: {{ $node }}
+{{- end }}
+
+{{ end }}

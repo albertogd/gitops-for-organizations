@@ -11,7 +11,7 @@ spec:
               repoURL: https://github.com/bstrauss84/gitops-for-organizations.git
               revision: develop
               files:
-                - path: "clusters/**/conf.yaml"
+                - path: "configs/clusters/**/conf.yaml"
           - list:
               elements:
                 - template: ocp-console-banner
@@ -28,11 +28,11 @@ spec:
       source:
         repoURL: https://github.com/bstrauss84/gitops-for-organizations.git
         targetRevision: develop
-        path: base/config/{{template}}
+        path: base/templates/{{template}}
         helm:
           valueFiles:
-            - /conf/{{cluster.environment}}/conf.yaml
-            - /clusters/{{cluster.environment}}/{{cluster.fqdn}}/conf.yaml
+            - /configs/{{cluster.environment}}/conf.yaml
+            - /configs/clusters/{{cluster.environment}}/{{cluster.fqdn}}/conf.yaml
       destination:
         server: "{{cluster.address}}"
       syncPolicy: {}
