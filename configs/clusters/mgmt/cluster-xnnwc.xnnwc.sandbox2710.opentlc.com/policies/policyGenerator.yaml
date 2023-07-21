@@ -13,7 +13,7 @@ policyDefaults:
   standards:
     - NIST SP 800-53
   policySets:
-    - openshift-hub
+    - ocp-hub
 placementBindingDefaults:
   name: "binding-openshift-clusters"
 policies:
@@ -21,12 +21,12 @@ policies:
   manifests:
     - path: node-configs
   policySets:
-    - openshift-plus-hub
-    - openshift-plus-clusters
+    - ocp-hub
+    - ocp-clusters
 policySets:
-  - name: openshift-hub
+  - name: ocp-hub
     placement:
       placementPath: input/hub-placement.yaml
-  - name: openshift-clusters
+  - name: ocp-clusters
     placement:
       placementPath: input/clusters-placement.yaml
