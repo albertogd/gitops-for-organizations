@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/bstrauss84/gitops-for-organizations.git
       revision: develop
       files:
-        - path: "clusters/**/conf.yaml"
+        - path: "configs/clusters/**/conf.yaml"
   template:
     metadata:
       name: "config-{{cluster.environment}}-{{cluster.name}}-overlay"
