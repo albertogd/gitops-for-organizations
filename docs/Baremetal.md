@@ -1,23 +1,23 @@
-# Provisioning Baremetal OpenShift clusters using GitOps with ACM leveraging on-premise Assisted Installer
+# Provisioning Baremetal OpenShift clusters using GitOps with RHACM leveraging on-premise Assisted Installer
 
-Recently, I published the blog [Provisioning OpenShift clusters using GitOps with ACM](https://cloud.redhat.com/blog/provisioning-openshift-clusters-using-gitops-with-acm) explaining how to  create OpenShift clusters with ACM using Gitops with ArgoCD. The OpenShift installation type was IPI, and valid for most of the platforms: Azure, AWS, GCP, vSphere… but not for baremetal. If you’ve ever installed an OpenShift cluster in baremetal and disconnected, you know how different it is from any other installation.
+Recently, I published the blog [Provisioning OpenShift clusters using GitOps with ACM](https://cloud.redhat.com/blog/provisioning-openshift-clusters-using-gitops-with-acm) explaining how to  create OpenShift clusters with RHACM using Gitops with ArgoCD. The OpenShift installation type was IPI, and valid for most of the platforms: Azure, AWS, GCP, vSphere… but not for baremetal. If you’ve ever installed an OpenShift cluster in baremetal and disconnected, you know how different it is from any other installation.
 
-In this blog, I’ll explain how to deploy a baremetal OpenShift cluster with Assisted Installer using ACM and GitOps with ArgoCD. If you are not familiar with deploying OpenShift clusters with ACM and Gitops, I recommend reading the article I wrote: [GitOps for organizations: provisioning and configuring OpenShift clusters automatically](https://cloud.redhat.com/blog/gitops-for-organizations-provisioning-and-configuring-openshift-clusters-automatically). I also highly recommend reading the blog [Managing OCP Infrastructures Using GitOps](https://myopenshiftblog.com/managing-ocp-infrastructures-using-gitops-part-1/), which I used the first time I deployed this solution.
+In this blog, I’ll explain how to deploy a baremetal OpenShift cluster with Assisted Installer using RHACM and GitOps with ArgoCD. If you are not familiar with deploying OpenShift clusters with RHACM and Gitops, I recommend reading the article I wrote: [GitOps for organizations: provisioning and configuring OpenShift clusters automatically](https://cloud.redhat.com/blog/gitops-for-organizations-provisioning-and-configuring-openshift-clusters-automatically). I also highly recommend reading the blog [Managing OCP Infrastructures Using GitOps](https://myopenshiftblog.com/managing-ocp-infrastructures-using-gitops-part-1/), which I used the first time I deployed this solution.
 
 
 ## Solution Overview
 
-We’ll use OpenShift Gitops and ACM in the same way as we did in [Provisioning OpenShift clusters using GitOps with ACM](https://cloud.redhat.com/blog/provisioning-openshift-clusters-using-gitops-with-acm): we’ll upload the Kubernetes objects to our git repository, ArgoCD will synchronize these object to our OpenShift cluster, and ACM will deploy the cluster leveraging Baremetal Operator, Ironic and Assisted Installer. 
+We’ll use OpenShift Gitops and RHACM in the same way as we did in [Provisioning OpenShift clusters using GitOps with ACM](https://cloud.redhat.com/blog/provisioning-openshift-clusters-using-gitops-with-acm): we’ll upload the Kubernetes objects to our git repository, ArgoCD will synchronize these object to our OpenShift cluster, and RHACM will deploy the cluster leveraging Baremetal Operator, Ironic and Assisted Installer. 
 
 
-![alt_text](../img/acm_assisted_installer_gitops.png "Diagram Provisioning Baremetal OpenShift clusters using GitOps with ACM leveraging on-premise Assisted Installer")
+![alt_text](../img/acm_assisted_installer_gitops.png "Diagram Provisioning Baremetal OpenShift clusters using GitOps with RHACM leveraging on-premise Assisted Installer")
 
 
 We’ll create the BareMetalHosts (BMH), which are Metal³ Custom Resource Definitions (CRDs) that define a physical host and its properties. The BMHs will connect to the baseboard management controller (BMC) physical nodes using the Redfish protocol. The node’s network will be statically configured using NMstateConfig. The OpenShift cluster will be deployed with Assisted Installer using the BareMetalHosts created.
 
-Don’t start creating all the objects. As there are many resources involved, we recommend creating them one at a time and checking their status. Start checking the [prerequisites](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.8/html/clusters/cluster_mce_overview#infra-env-prerequisites) in ACM documentation before creating an infrastructure environment, and enable the Central Infrastructure Management service, which is provided with the Multicluster Engine. 
+Don’t start creating all the objects. As there are many resources involved, we recommend creating them one at a time and checking their status. Start checking the [prerequisites](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.8/html/clusters/cluster_mce_overview#infra-env-prerequisites) in the RHACM documentation before creating an infrastructure environment, and enable the Central Infrastructure Management service, which is provided with the Multicluster Engine. 
 
-Once prerequisites have been fulfilled, move to the ACM console. In the Infrastructure Environment, create and connect the Baremetal Hosts to the host’s BMC with Redfish. And then, deploy a cluster using the Baremetal Hosts (existing discovered hosts) following [Creating your cluster in ACM with the console](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.8/html/clusters/cluster_mce_overview#on-prem-creating-your-cluster-with-the-console). Check the objects created in the deployment, move to the command line, and deploy another cluster creating the same objects with other parameters following [Creating your cluster in ACM with the command line](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.8/html/clusters/cluster_mce_overview#on-prem-creating-your-cluster-with-the-cli). After that, upload the yaml files to your git repo, and create an ArgoCD Application to sync the objects. 
+Once prerequisites have been fulfilled, move to the RHACM console. In the Infrastructure Environment, create and connect the Baremetal Hosts to the host’s BMC with Redfish. And then, deploy a cluster using the Baremetal Hosts (existing discovered hosts) following [Creating your cluster in ACM with the console](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.8/html/clusters/cluster_mce_overview#on-prem-creating-your-cluster-with-the-console). Check the objects created in the deployment, move to the command line, and deploy another cluster creating the same objects with other parameters following [Creating your cluster in ACM with the command line](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.8/html/clusters/cluster_mce_overview#on-prem-creating-your-cluster-with-the-cli). After that, upload the yaml files to your git repo, and create an ArgoCD Application to sync the objects. 
 
 The last step would be to create a Helm chart with all the objects as templates, and an ApplicationSet to create an Application per cluster as we did in [Provisioning OpenShift clusters using GitOps with ACM](https://cloud.redhat.com/blog/provisioning-openshift-clusters-using-gitops-with-acm).
 
@@ -32,11 +32,11 @@ The last step would be to create a Helm chart with all the objects as templates,
 
   The assisted installer provisioning workflow:
 
-![alt_text](../img/acm_assisted_installer_workflow.png "ACM assisted installer provisioning workflow")
+![alt_text](../img/acm_assisted_installer_workflow.png "RHACM assisted installer provisioning workflow")
 
 ## Objects
 
-In the ACM documentation chapter [Creating your cluster with the command line](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.8/html/clusters/cluster_mce_overview#on-prem-creating-your-cluster-with-the-cli), you can get all the objects needed to deploy the cluster with Assisted Installer:
+In the RHACM documentation chapter [Creating your cluster with the command line](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.8/html/clusters/cluster_mce_overview#on-prem-creating-your-cluster-with-the-cli), you can get all the objects needed to deploy the cluster with Assisted Installer:
 
 * [Namespace](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.8/html/clusters/cluster_mce_overview#on-prem-creating-your-cluster-with-the-cli-namespace)
 * [ClusterImageSet](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.8/html/clusters/cluster_mce_overview#on-prem-creating-your-cluster-with-the-cli-cluster-image-set)
@@ -52,7 +52,7 @@ In the ACM documentation chapter [Creating your cluster with the command line](h
 
 ## Useful Tips
 
-* As I said before, start checking the prerequisites, and specially the connectivity between out-of-band management host IP addresses and ACM. For virtualmedia, you’ll need to [open the port 6183](https://docs.openshift.com/container-platform/4.13/installing/installing_bare_metal_ipi/ipi-install-prerequisites.html#network-requirements-out-of-band_ipi-install-prerequisites). The troubleshooting with virtualmedia, assisted-agent and ignition can be difficult, so try to get access to the host ILO and a virtual terminal. This will make it much easier to troubleshoot.
+* As I said before, start checking the prerequisites, and specially the connectivity between out-of-band management host IP addresses and RHACM. For virtualmedia, you’ll need to [open the port 6183](https://docs.openshift.com/container-platform/4.13/installing/installing_bare_metal_ipi/ipi-install-prerequisites.html#network-requirements-out-of-band_ipi-install-prerequisites). The troubleshooting with virtualmedia, assisted-agent and ignition can be difficult, so try to get access to the host ILO and a virtual terminal. This will make it much easier to troubleshoot.
 
 * Don’t create all the objects at the same time, create them one at a time and checking their status. 
 
@@ -61,8 +61,8 @@ In the ACM documentation chapter [Creating your cluster with the command line](h
 
 ## Summary
 
-We’ve deployed a baremetal OpenShift cluster using ACM and on-premise assisted installer.
+We’ve deployed a baremetal OpenShift cluster using RHACM and on-premise assisted installer.
 
-First, we need to check the prerequisites. Once we've the prerequisites in place, we move to the ACM console, and create the Baremetal hosts and check their status. After that, we can deploy an Openshift cluster using Assisted Installer and the Baremetal hosts. If the deployment is successful, we can move to the command line, and create the objects one at a time checking their status. At last, we can create the objects in our Git repository, and synchronize the objects to our ACM cluster using ArgoCD.
+First, we need to check the prerequisites. Once we've the prerequisites in place, we move to the RHACM console, and create the Baremetal hosts and check their status. After that, we can deploy an Openshift cluster using Assisted Installer and the Baremetal hosts. If the deployment is successful, we can move to the command line, and create the objects one at a time checking their status. At last, we can create the objects in our Git repository, and synchronize the objects to our RHACM cluster using ArgoCD.
 
 If we want to automate baremetal OpenShift cluster deployments like a self-service, you can create a Helm Chart with all the objects, and an ArgoCD ApplicationSet to deploy each cluster using the Helm chart as we did in [Provisioning OpenShift clusters using GitOps with ACM](https://cloud.redhat.com/blog/provisioning-openshift-clusters-using-gitops-with-acm).
