@@ -27,6 +27,7 @@ The last step would be to create a Helm chart with all the objects as templates,
 * [Bare Metal Operator](https://docs.openshift.com/container-platform/4.13/post_installation_configuration/bare-metal-configuration.html#bmo-about-the-bare-metal-operator_post-install-bare-metal-configuration) is the main component that interfaces with the Ironic API for all operations needed to provision bare-metal hosts, such as hardware capabilities inspection, operating system installation, and re-initialization when restoring a bare-metal machine to its original status.
 * [Ironic](https://book.metal3.io/ironic/introduction.html) is a service for automating provisioning and lifecycle management of bare metal machines.
 * The [OpenShift Assisted Installer](https://github.com/openshift/assisted-installer) provides for easy provisioning of new bare metal machines and creation of OpenShift clusters.  The Assisted Installer ensures that all the hosts meet the requirements and triggers the OpenShift Container Platform cluster deployment. All the nodes (BMHs) have the Red Hat Enterprise Linux CoreOS (RHCOS) image written to the disk. 
+
   The [Assisted Image Service](https://github.com/openshift/assisted-image-service) customizes and serves RHCOS images for the Assisted Installer Service. It downloads a set of RHCOS images on startup based on config.
 
   The assisted installer provisioning workflow:
