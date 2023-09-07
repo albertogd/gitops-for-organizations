@@ -61,4 +61,8 @@ In the ACM documentation chapter [Creating your cluster with the command line](h
 
 ## Summary
 
-We’ve deployed a baremetal OpenShift cluster using ACM and on-premise assisted installer. First, we’ve checked the prerequisites, then we’ve created the Baremetal hosts and the cluster using ACM UI. After that, we’ve created the objects in the ACM cluster. Next, we’ve created the objects in our Git repository, and we’ve synchronized the objects to our ACM cluster with ArgoCD. At last, we’ve created a Helm Chart and an ArgoCD ApplicationSet to deploy baremetal clusters automatically.
+We’ve deployed a baremetal OpenShift cluster using ACM and on-premise assisted installer.
+
+First, we need to check the prerequisites. Once we've the prerequisites in place, we move to the ACM console, and create the Baremetal hosts and check their status. After that, we can deploy an Openshift cluster using Assisted Installer and the Baremetal hosts. If the deployment is successful, we can move to the command line, and create the objects one at a time checking their status. At last, we can create the objects in our Git repository, and synchronize the objects to our ACM cluster using ArgoCD.
+
+If we want to automate baremetal OpenShift cluster deployments like a self-service, you can create a Helm Chart with all the objects, and an ArgoCD ApplicationSet to deploy each cluster using the Helm chart as we did in [Provisioning OpenShift clusters using GitOps with ACM](https://cloud.redhat.com/blog/provisioning-openshift-clusters-using-gitops-with-acm).
