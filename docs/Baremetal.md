@@ -29,7 +29,7 @@ The last step would be to create a Helm chart with all the objects as templates,
 * The [OpenShift Assisted Installer](https://github.com/openshift/assisted-installer) provides for easy provisioning of new bare metal machines and creation of OpenShift clusters.  The Assisted Installer ensures that all the hosts meet the requirements and triggers the OpenShift Container Platform cluster deployment. All the nodes (BMHs) have the Red Hat Enterprise Linux CoreOS (RHCOS) image written to the disk. 
   * The [Assisted Image Service](https://github.com/openshift/assisted-image-service) customizes and serves RHCOS images for the Assisted Installer Service. It downloads a set of RHCOS images on startup based on config.
 
-  The assisted installer provisioning workflow:
+    The assisted installer provisioning workflow:
 
 ![alt_text](../img/acm_assisted_installer_workflow.png "ACM assisted installer provisioning workflow")
 
