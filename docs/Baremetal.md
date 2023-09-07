@@ -1,4 +1,4 @@
-# Provisioning Baremetal OpenShift clusters using GitOps with RHACM leveraging on-premise Assisted Installer
+# Provisioning Baremetal OpenShift clusters using RHACM with GitOps leveraging on-premise Assisted Installer
 
 Recently, I published the blog [Provisioning OpenShift clusters using GitOps with ACM](https://cloud.redhat.com/blog/provisioning-openshift-clusters-using-gitops-with-acm) explaining how to  create OpenShift clusters with RHACM using Gitops with ArgoCD. The OpenShift installation type was IPI, and valid for most of the platforms: Azure, AWS, GCP, vSphere… but not for baremetal. If you’ve ever installed an OpenShift cluster in baremetal and disconnected, you know how different it is from any other installation.
 
@@ -22,7 +22,7 @@ Once prerequisites have been fulfilled, move to the RHACM console. In the Infras
 The last step would be to create a Helm chart with all the objects as templates, and an ApplicationSet to create an Application per cluster as we did in [Provisioning OpenShift clusters using GitOps with ACM](https://cloud.redhat.com/blog/provisioning-openshift-clusters-using-gitops-with-acm).
 
 
-## Baremetal Operator, Ironic and Assisted Installer in ACM
+## Baremetal Operator, Ironic and Assisted Installer in RHACM
 
 * [Bare Metal Operator](https://docs.openshift.com/container-platform/4.13/post_installation_configuration/bare-metal-configuration.html#bmo-about-the-bare-metal-operator_post-install-bare-metal-configuration) is the main component that interfaces with the Ironic API for all operations needed to provision bare-metal hosts, such as hardware capabilities inspection, operating system installation, and re-initialization when restoring a bare-metal machine to its original status.
 * [Ironic](https://book.metal3.io/ironic/introduction.html) is a service for automating provisioning and lifecycle management of bare metal machines.
