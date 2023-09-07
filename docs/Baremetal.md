@@ -56,7 +56,9 @@ In the ACM documentation chapter [Creating your cluster with the command line](h
 
 ## Useful Tips
 
-As I said before, don’t start creating all the objects. Start checking the prerequisites, and specially with the connectivity between out-of-band management host IP addresses and ACM. For virtualmedia, you’ll need to [open the port 6183](https://docs.openshift.com/container-platform/4.13/installing/installing_bare_metal_ipi/ipi-install-prerequisites.html#network-requirements-out-of-band_ipi-install-prerequisites). The troubleshooting with virtualmedia, assisted-agent and ignition can be difficult, so try to get access to the host ILO and a virtual terminal. This will make it much easier to troubleshoot.
+As I said before, start checking the prerequisites, and specially the connectivity between out-of-band management host IP addresses and ACM. For virtualmedia, you’ll need to [open the port 6183](https://docs.openshift.com/container-platform/4.13/installing/installing_bare_metal_ipi/ipi-install-prerequisites.html#network-requirements-out-of-band_ipi-install-prerequisites). The troubleshooting with virtualmedia, assisted-agent and ignition can be difficult, so try to get access to the host ILO and a virtual terminal. This will make it much easier to troubleshoot.
+
+Don’t create all the objects at the same time, create them one at a time and checking their status. 
 
 And the last tip: you can contact Red Hat Professional services for assistance. Although we openly share knowledge publishing blogs, solutions and articles like this one, each environment has its own customizations and challenges, and we have wide experience with a lot of customers all over the world.
 
